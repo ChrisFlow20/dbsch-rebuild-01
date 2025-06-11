@@ -1,9 +1,0 @@
-<advices>
-    <advice>
-        <pattern><![CDATA[clusterInstanceHostPattern]]></pattern>
-        <message><![CDATA[
-Please read this article: <a href="https://github.com/awslabs/aws-postgresql-jdbc">https://github.com/awslabs/aws-postgresql-jdbc</a>
-        ]]></message>
-    </advice>
-
-</advices>
