@@ -1,0 +1,21 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[ERROR 42831]]></pattern>
+        <message><![CDATA[Primary key are set over mandatory ( not null ) unique columns. <br>
+If the column has already data and some of the values does not respect this, setting the primary key will fail. <br>
+Modify first the current data records to fit this conditions.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[encryptionAlgorithm=AES]]></pattern>
+        <message><![CDATA[Please check the help on how to add encryption libraries to Java bin.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Operation 'RENAME' cannot be performed on object]]></pattern>
+        <message><![CDATA[Tables referred by foreign keys cannot be renamed. <br>
+First drop the foreign keys pointing to this table, rename the table and then re-create the foreign keys.
+]]></message>
+    </advice>
+</advices>
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types>
+		<type name="byte" java="-4" precision="NONE" />
+		<type name="char" java="1" precision="LENGTH" />
+		<type name="date" java="91" precision="LENGTH" />
+		<type name="datetime year to fraction" java="93" precision="LENGTH" />
+		<type name="decimal" java="3" precision="DECIMAL" />
+		<type name="float" java="6" precision="NONE" />
+        <type name="integer" aliases="int" java="4" precision="NONE" />
+		<type name="nchar" java="1" precision="NONE" />
+		<type name="money" java="3" precision="NONE" />
+		<type name="numeric" java="2" precision="DECIMAL" />
+		<type name="serial" java="4" precision="NONE" />
+		<type name="smallint" java="5" precision="NONE" />
+		<type name="smallfloat" java="7" precision="NONE" />
+		<type name="text" java="-1" precision="LENGTH" />
+		<type name="varchar" java="12" precision="LENGTH" />
+        <type name="nvarchar" java="12" precision="LENGTH" />
+        <type name="lvarchar" java="-1" precision="LENGTH" />
+		<type name="boolean" java="16" precision="NONE" />
+		<type name="int8" aliases="bigint" java="-5" precision="NONE" />
+		<type name="serial8" java="-5" precision="NONE" />
+		<type name="clob" java="2005" precision="NONE" />
+		<type name="blob" java="2004" precision="NONE" />
+		<type name="bigint" aliases="int8" java="-5" precision="NONE" />
+		<type name="bigserial" java="-5" precision="NONE" />
+	</types>
+</database>

@@ -1,0 +1,4 @@
+  Issues :
+  1. Views are not imported. Has to be done by hand, the listing is wrong ( not match between schema and catalog )
+  2. Importing functions and procedures won't import the parameters. Can be done using DatabaseMetaData#getProcedureColumns
+  3. Explain plan is not implemented

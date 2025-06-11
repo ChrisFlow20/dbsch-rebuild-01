@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types >
+		<type name="number" java="3" precision="DECIMAL" />
+		<type name="varchar" java="12" precision="LENGTH" defo_length="0" options="COLLATE ~collationName~"/>
+		<type name="text" aliases="string" java="12" precision="LENGTH" defo_length="0" options="COLLATE ~collationName~"/>
+		<type name="date" java="91" precision="NONE" />
+		<type name="variant" java="12" precision="NONE" />
+		<type name="integer" aliases="int,bigint,smallint,tinyint,byteint" java="4" precision="NONE" />
+		<type name="float" java="6" precision="NONE" />
+		<type name="double" java="8" precision="DECIMAL" />
+		<type name="time" java="92" precision="NONE" />
+		<type name="boolean" java="16" precision="NONE" />
+		<type name="array" java="2003" precision="NONE" />
+		<type name="object" java="2000" precision="NONE" />
+		<type name="timestamp_tz" java="93" precision="LENGTH" defo_length="9" />
+		<type name="timestamp_ltz" java="93" precision="LENGTH" defo_length="9" />
+		<type name="timestamp_ntz" java="93" precision="LENGTH" defo_length="9" />
+		<type name="datetime" java="91" precision="NONE" />
+		<type name="binary" java="-2" precision="LENGTH" />
+		<type name="varbinary" java="-3" precision="LENGTH" />
+		<type name="varbinary(max)" java="-3" precision="NONE" />
+		<type name="char" java="1111" precision="LENGTH" options="COLLATE ~collationName~"/>
+		<type name="geography" java="12" precision="NONE" />
+	</types>
+</database>

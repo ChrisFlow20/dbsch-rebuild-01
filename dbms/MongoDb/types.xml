@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="objectId" aliases="oid" java="-8" precision="NONE"/>
+        <type name="bool" java="16" precision="NONE" />
+        <type name="binData" java="2004" precision="NONE" />
+        <type name="double" java="8" precision="NONE"/>
+        <type name="dbPointer" java="2006" precision="NONE" />
+        <type name="string" java="12" precision="NONE" options="pattern:'~regExPattern~'"/>
+        <type name="regex" java="12" precision="NONE" />
+        <type name="long" java="-1" precision="NONE"/>
+        <type name="int" java="4" aliases="integer" precision="NONE" options="minimum: ~minValue~| maximum: ~maxValue~"/>
+        <type name="date" java="91" precision="NONE"/>
+        <type name="timestamp" java="93" precision="NONE"/>
+        <type name="enum" java="12" precision="ENUMERATION" />
+        <type name="object" aliases="map" java="4999544" precision="NONE"/>
+        <type name="array[object]" aliases="list" java="4999545" precision="NONE"/>
+        <type name="array" aliases="list" java="2003" precision="NONE"/>
+        <type name="array[int]" aliases="list" java="2003" precision="NONE"/>
+        <type name="array[double]" aliases="list" java="2003" precision="NONE"/>
+        <type name="array[long]" aliases="list" java="2003" precision="NONE"/>
+        <type name="array[boolean]" aliases="list" java="2003" precision="NONE"/>
+        <type name="array[string]" aliases="list" java="2003" precision="NONE"/>
+        <type name="null" java="0" precision="NONE" />
+        <type name="javaScript" java="2000" precision="NONE" />
+        <type name="javaScriptWithScope" java="2000" precision="NONE" />
+        <type name="symbol" java="16" precision="NONE" />
+        <type name="minKey" java="4" precision="NONE" />
+        <type name="maxKey" java="4" precision="NONE" />
+    </types>
+</database>

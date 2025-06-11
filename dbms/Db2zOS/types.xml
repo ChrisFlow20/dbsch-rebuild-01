@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="BIGINT" java="-5" precision="NONE"/>
+        <type name="BOOLEAN" java="16" precision="NONE" />
+        <type name="LONG VARCHAR FOR BIT DATA" java="-4" precision="NONE"/>
+        <type name="VARCHAR () FOR BIT DATA" java="-3" precision="LENGTH"/>
+        <type name="CHAR () FOR BIT DATA" java="-2" precision="LENGTH"/>
+        <type name="LONG VARCHAR" java="-1" precision="LENGTH"/>
+        <type name="LONG VARGRAPHIC" java="-1" precision="NONE"/>
+        <type name="CHAR" java="1" precision="LENGTH"/>
+        <type name="GRAPHIC" java="1" precision="LENGTH"/>
+        <type name="DECIMAL" java="3" precision="DECIMAL"/>
+        <type name="INTEGER" java="4" precision="NONE"/>
+        <type name="SMALLINT" java="5" precision="NONE"/>
+        <type name="REAL" java="7" precision="NONE"/>
+        <type name="DOUBLE" java="8" precision="NONE"/>
+        <type name="VARCHAR" java="12" precision="LENGTH"/>
+        <type name="VARGRAPHIC" java="12" precision="LENGTH"/>
+        <type name="DATE" java="91" precision="NONE"/>
+        <type name="TIME" java="92" precision="NONE"/>
+        <type name="TIMESTAMP" java="93" precision="NONE"/>
+        <type name="XML" java="1111" precision="NONE"/>
+        <type name="DISTINCT" java="2001" precision="NONE"/>
+        <type name="BLOB" java="2004" precision="NONE"/>
+        <type name="CLOB" java="2005" precision="LENGTH"/>
+        <type name="DBCLOB" java="2005" precision="LENGTH"/>
+    </types>
+</database>

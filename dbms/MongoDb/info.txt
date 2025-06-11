@@ -1,0 +1,15 @@
+## MongoDb Cloud
+https://cloud.mongodb.com
+dragospruteanu@yahoo.com
+Predeal12#
+User dprutean/dr...
+
+
+https://run.qwiklab.com/dashboard
+dragospruteanu@yahoo.com / dr...
+
+
+* skip import errors MongoDb cloud for local db
+* database designer template
+* choose design at startup
+* git clone http://git.code.sf.net/p/squirrel-sql/git squirrel-sql-git

@@ -1,0 +1,48 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Connection timed out|Unknown packet type|packet_type_0x48|Connection reset]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#tcpip">Enable the TCP/IP connectivity in SqlServer</a>. By default is disabled. Details in Help.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable the Database Authentication (Mixed Mode)</a> on the server<br>
+&raquo;&nbsp;Check if the database is up<br>
+&raquo;&nbsp;The Windows Firewall on server or client may block the communication. Please check.<br>
+&raquo;&nbsp;Try to ping the host<br>
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Connection refused|Access denied for user]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#tcpip">Enable the TCP/IP connectivity in SqlServer</a>. By default is disabled. Details in Help.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable the Mixed Mode Authentication</a> on the server<br>
+&raquo;&nbsp;Check if the user name and password are correct.<br>
+&raquo;&nbsp;The Windows Firewall on server or client may block the communication. Please check.<br>
+&raquo;&nbsp;Try to ping the host<br>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Native SSPI library not loaded]]></pattern>
+        <message><![CDATA[
+Search in google for 'download JTDS'. Download the jtds zip file, and copy from the archive<br>
+x86/SSO/ntlmauth.dll to C:\Program Files (x86)\Java\jre7\bin ( check first where your java is installed ).
+ ]]> </message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Login failed for user]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;Check if the user name and password are correct.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable the Mixed Mode Authentication</a> on the server<br>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[The ALTER TABLE statement conflicted with the FOREIGN KEY constraint]]></pattern>
+        <message><![CDATA[
+    Creating a Foreign Key may fail if values in the referring column does not exists in the primary key column.<br>
+    Try a 'SELECT <col> FROM <ref_table> WHERE col NOT IN ( SELECT <pkcol> FROM <pk_table> )'
+    ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Cannot insert the value NULL into column]]></pattern>
+        <message>Please check first all EXISTING records fits the NOT NULL condition</message>
+    </advice>
+</advices>
+

@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<drivers version="1" >
+    <database name="AmazonAthena">
+        <driver cls="com.simba.athena.jdbc42.Driver" url="jdbc:awsathena://AwsRegion={PARAM};User={USER};Password={PASSWORD}[;S3OutputLocation={PARAM2};]" user_label="Access Key" user_prompt_text="Amazon Access Key" param="Region" param2="Output Location" description="Standard" website="https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html" encode_password="false"/>
+    </database>
+    <database name="Access" >
+        <driver cls="net.ucanaccess.jdbc.UcanaccessDriver" url="jdbc:ucanaccess://{FILE};memory=false" authenticate="false" description="Standard" website="http://ucanaccess.sourceforge.net/site.html#examples"/>
+    </database>
+    <database name="ApacheDrill" >
+        <driver cls="org.apache.drill.jdbc.Driver" url="jdbc:drill:zk={HOST}[:{PORT}]" authenticate="false" description="Standard" website="https://drill.apache.org/docs/using-the-jdbc-driver/"/>
+    </database>
+    <database name="ApacheIgnite">
+        <driver cls="org.apache.ignite.IgniteJdbcDriver" url="jdbc:ignite:thin://{HOST}[:{PORT}]" authenticate="false" description="Standard" website="https://ignite.apache.org/docs/latest/SQL/JDBC/jdbc-driver"/>
+    </database>
+    <database name="ClickHouse">
+        <driver cls="com.clickhouse.jdbc.ClickHouseDriver" url="jdbc:clickhouse://{HOST}[:{PORT}]" authenticate="false" description="No Authentication" website="https://github.com/ClickHouse/clickhouse-jdbc"/>
+        <driver cls="com.clickhouse.jdbc.ClickHouseDriver" url="jdbc:clickhouse://{HOST}[:{PORT}]" authenticate="true" description="Using Authentication" website="https://github.com/ClickHouse/clickhouse-jdbc"/>
+    </database>
+    <database name="AzureSynapse" inherited_dbms="SqlServer" remote_description="The Host is the Dedicated SQL Endpoint from the Synapse Workspace. Click for details.">
+        <driver cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:1433;user={USER};password={PASSWORD};database={DB};encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.database.windows.net;loginTimeout=30;" description="Standard" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" user_prompt_text="The user from Azure Console"/>
+        <driver cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:{PORT};databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryInteractive;selectMethod=cursor;TrustServerCertificate=True" param="Instance" description="Active Directory Interactive Multi-Factor Authentication" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017"/>
+        <driver cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryIntegrated;selectMethod=cursor;encrypt=true;trustServerCertificate=true;hostNameInCertificate=*.sql.azuresynapse.net" param="Instance" description="Active Directory Integrated" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" skip_port_if_default="true" />
+        <driver cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryInteractive;selectMethod=cursor;trustServerCertificate=true" param="Instance" description="Active Directory Interactive Multi-Factor Authentication" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" skip_port_if_default="true" />
+    </database>
+    <database name="Elasticsearch" local_description="Install the HTTPS certificate as described in help" remote_description="Install the HTTPS certificate as described in help">
+        <driver cls="org.elasticsearch.xpack.sql.jdbc.EsDriver" url="jdbc:es://https://{HOST}:{PORT}" authenticate="true" inst_label="Server Path" description="With Authentication" website="https://www.elastic.co/guide/en/elasticsearch/reference/current/sql-jdbc.html"/>
+        <driver cls="org.elasticsearch.xpack.sql.jdbc.EsDriver" url="jdbc:es://https://{HOST}:{PORT}/" authenticate="false" description="No Authentication" website="https://www.elastic.co/guide/en/elasticsearch/reference/current/sql-jdbc.html"/>
+        <driver cls="nl.anchormen.sql4es.jdbc.ESDriver" url="jdbc:sql4es://{HOST}:{PORT}/{DB}?[cluster.name={PARAM}]" authenticate="false" inst_label="Index Name" param="Cluster Name" description="Use Authentication" website="https://github.com/Anchormen/sql4es"/>
+    </database>
+	<database name="Oracle" local_description="Choose different connection methods (SID, TNS or Service Name) from the URL combo." remote_description="Choose to connect via SID, Service Name or TNS from the URL combo." cloud_description="Use 'jdbc:oracle:thin:@' + the URL from the Cloud Console as described here." website="https://docs.oracle.com/cd/E11882_01/appdev.112/e13995/oracle/jdbc/OracleDriver.html" user_prompt_text="Can be 'sys', 'sys as sysdba'...">
+        <driver cls="oracle.jdbc.driver.OracleDriver;oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@{HOST}[:{PORT}]:{DB}" inst_label="SID" description="Connect via SID" website="https://docs.oracle.com/cd/E11882_01/appdev.112/e13995/oracle/jdbc/OracleDriver.html" user_prompt_text="Can be 'sys', 'sys as sysdba'..."/>
+        <driver cls="oracle.jdbc.driver.OracleDriver;oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@//{HOST}[:{PORT}]/{DB}" inst_label="Service Name" description="Connect via Service Name" website="https://docs.oracle.com/cd/E11882_01/appdev.112/e13995/oracle/jdbc/OracleDriver.html" user_prompt_text="Can be 'sys', 'sys as sysdba'..."/>
+        <driver cls="oracle.jdbc.driver.OracleDriver;oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST={HOST})(PORT={PORT}))(CONNECT_DATA=(SERVER = DEDICATED)(SERVICE_NAME={DB})))" inst_label="DB Name" description="TNS" website="https://docs.oracle.com/cd/E11882_01/appdev.112/e13995/oracle/jdbc/OracleDriver.html" user_prompt_text="Can be 'sys', 'sys as sysdba'..."/>
+	</database>
+	<database name="PostgreSQL" remote_description="Require enabling remote connectivity in Postgres and the Windows firewall.">
+        <driver cls="org.postgresql.Driver;postgresql.Driver;software.amazon.jdbc.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]"  description="Standard" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+        <driver cls="org.postgresql.Driver;postgresql.Driver;software.amazon.jdbc.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" description="Use SSL - Read 'Help &amp; Tips'" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+        <driver cls="org.postgresql.Driver;postgresql.Driver;software.amazon.jdbc.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]?sslmode=require&amp;user={USER}&amp;password={PASSWORD}" description="Heroku" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+	</database>
+    <database name="TimescaleDB" inherited_dbms="PostgreSQL">
+    </database>
+    <database name="AuroraPostgreSQL">
+        <driver cls="software.aws.rds.jdbc.postgresql.Driver" url="jdbc:postgresql:aws://{HOST}[:{PORT}]/[{DB}]" description="Standard" website="https://github.com/awslabs/aws-postgresql-jdbc"/>
+        <driver cls="org.postgresql.Driver;postgresql.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]"  description="Standard" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+        <driver cls="org.postgresql.Driver;postgresql.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]?ssl=true&amp;sslfactory=org.postgresql.ssl.NonValidatingFactory" description="Use SSL - Read 'Help &amp; Tips'" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+        <driver cls="org.postgresql.Driver;postgresql.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]?sslmode=require&amp;user={USER}&amp;password={PASSWORD}" description="Heroku" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+    </database>
+    <database name="AzurePostgreSQL" inherited_dbms="PostgreSQL" >
+    </database>
+    <database name="Greenplum" inherited_dbms="PostgreSQL" >
+    </database>
+    <database name="Cockroach" inherited_dbms="PostgreSQL">
+        <driver cls="org.postgresql.Driver;postgresql.Driver;software.amazon.jdbc.Driver" url="jdbc:postgresql://{HOST}[:{PORT}]/[{DB}]?sslmode=require&amp;user={USER}&amp;password={PASSWORD}[&amp;cluster={PARAM}]"  description="Cluster" param="Cluster" website="https://jdbc.postgresql.org/documentation/use/" user_prompt_text="Usually 'postgres'"/>
+    </database>
+    <database name="MongoDb" local_description="The URL is the same as the native Java URL. Choose 'Manual Edit' in the URL combo." remote_description="The URL is the same as the native Java URL. Choose 'Manual Edit' in the URL combo.">
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}[?authSource={DB}]" inst_label="AuthenticationDB" description="Password Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{HOSTS}/{DB}" authenticate="false" description="No Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}?tls=true[&amp;trustStore={PARAM}][&amp;trustStorePassword={PARAM2}]" param="TrustStore Path To Certificate" param2="TrustStore Password" description="Using SSL" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}?[authSource={DB}&amp;]authMechanism=SCRAM-SHA-256" inst_label="AuthenticationDB" description="SCRAM-SHA-256 Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}?[authSource={DB}&amp;]authMechanism=SCRAM-SHA-1" inst_label="AuthenticationDB" description="SCRAM-SHA-1 Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}?[authSource={DB}&amp;]authMechanism=MONGODB-CR" inst_label="AuthenticationDB" description="MONGODB-CR Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}:{PASSWORD}@{HOSTS}/{DB}?authMechanism=MONGODB-X509&amp;ssl=true" description="X.509 Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}@{HOSTS}/{DB}?authSource={DB}&amp;authMechanism=GSSAPI" description="Kerberos Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+        <driver cls="com.wisecoders.dbschema.mongodb.JdbcDriver" url="mongodb://{USER}@{HOSTS}/{DB}?authSource=$external&amp;authMechanism=PLAIN" description="LDAP Authentication" website="https://docs.mongodb.com/manual/reference/connection-string/"/>
+    </database>
+    <database name="DocumentDB" inherited_dbms="MongoDb" remote_description="Create a SSH Tunnel." >
+    </database>
+    <database name="MySql" remote_description="May require to enable remote connectivity in MySql and the Windows firewall.">
+        <driver cls="com.mysql.cj.jdbc.Driver;com.mysql.jdbc.Driver;com.mysql.cj.jdbc.NonRegisteringDriver;org.gjt.mm.mysql.Driver" url="jdbc:mysql://{HOST}[:{PORT}][/{DB}]?useLegacyDatetimeCode=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;useOldAliasMetadataBehavior=true" inst_label="Database" description="Standard" website="https://dev.mysql.com/doc/connector-j/en/connector-j-reference-jdbc-url-format.html"/>
+    </database>
+    <database name="MariaDb" remote_description="May require to configure remote connectivity and the Windows firewall.">
+        <driver cls="org.mariadb.jdbc.Driver" url="jdbc:mariadb://{HOST}[:{PORT}][/{DB}]" inst_label="Schema" description="Standard" website="https://mariadb.com/kb/en/library/about-mariadb-connector-j/"/>
+        <driver cls="com.mysql.jdbc.Driver;org.gjt.mm.mysql.Driver" url="jdbc:mysql://{HOST}[:{PORT}][/{DB}]?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull" inst_label="Database" description="Standard" website="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html"/>
+    </database>
+    <database name="SingleStore" remote_description="May require to configure remote connectivity and the Windows firewall.">
+        <driver cls="com.singlestore.jdbc.Driver" url="jdbc:singlestore://{HOST}[:{PORT}][/{DB}]" inst_label="Schema" description="Standard" website="https://mariadb.com/kb/en/library/about-mariadb-connector-j/"/>
+    </database>
+    <database name="NuoDB">
+        <driver cls="com.nuodb.jdbc.Driver" url="jdbc:com.nuodb://{HOST}[:{PORT}][/{DB}]" inst_label="Database" description="Standard" website="https://doc.nuodb.com/nuodb/latest/client-development/using-the-nuodb-java-jdbc-driver/notes-for-using-java-jdbc-driver/specifying-properties-on-the-connection-url/"/>
+    </database>
+    <database name="InfluxDB" >
+        <driver cls="com.wisecoders.dbschema.influxdb.JdbcDriver" url="http://{HOST}:{PORT}?org={DB}&amp;token={PARAM}[&amp;days={PARAM2}]" param2="Days Back" authenticate="false" description="HTTP Using Token" inst_label="Organization" param="Token"  website="https://dbschema.com/influxdb-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.influxdb.JdbcDriver" url="http://{HOST}:{PORT}?org={DB}?days={PARAM2}" authenticate="true" param2="Days Back" description="HTTP Using User and Password" inst_label="Organization" website="https://dbschema.com/influxdb-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.influxdb.JdbcDriver" url="https://{HOST}:{PORT}?org={DB}&amp;token={PARAM}[&amp;days={PARAM2}]" param2="Days Back" authenticate="false" description="HTTPS Using Token" inst_label="Organization" param="Token"  website="https://dbschema.com/influxdb-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.influxdb.JdbcDriver" url="https://{HOST}:{PORT}?org={DB}?days={PARAM2}" authenticate="true" param2="Days Back" description="HTTPS Using User and Password" inst_label="Organization" website="https://dbschema.com/influxdb-jdbc-driver.html"/>
+    </database>
+    <database name="AuroraMySql" remote_description="Choose 'Manually Edit' in the URL combo and copy it from the AWS console.">
+        <driver cls="org.mariadb.jdbc.Driver" url="jdbc:mariadb:aurora://{HOST}[:{PORT}][/{DB}]" inst_label="Schema" description="Standard" website="https://mariadb.com/kb/en/library/about-mariadb-connector-j/"/>
+        <driver cls="com.mysql.jdbc.Driver;org.gjt.mm.mysql.Driver" url="jdbc:mysql://{HOST}[:{PORT}][/{DB}]?useUnicode=true&amp;characterEncoding=UTF8&amp;zeroDateTimeBehavior=convertToNull&amp;useOldAliasMetadataBehavior=true" inst_label="Database" description="Standard" website="https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-reference-jdbc-url-format.html"/>
+    </database>
+    <database name="Cassandra" local_description="Find the DataCenter using 'nodetool status' or 'nodetool -h ::FFFF:127.0.0.1 status'" remote_description="Find the DataCenter using 'nodetool status' or 'nodetool -h ::FFFF:127.0.0.1 status'">
+        <driver cls="com.wisecoders.dbschema.cassandra.JdbcDriver;com.ing.data.cassandra.jdbc.CassandraDriver" url="jdbc:cassandra://{HOSTS}[/{DB}];dc={PARAM}" description="Standard" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.cassandra.JdbcDriver;com.ing.data.cassandra.jdbc.CassandraDriver" url="jdbc:cassandra://{HOSTS}[/{DB}];dc={PARAM}" authenticate="false" description="Without Authentication" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.cassandra.JdbcDriver;com.ing.data.cassandra.jdbc.CassandraDriver" url="jdbc:cassandra://{HOSTS}[/{DB}];dc={PARAM};kerberos=true" authenticate="true" description="Use Kerberos" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+        <driver cls="com.wisecoders.dbschema.cassandra.JdbcDriver;com.ing.data.cassandra.jdbc.CassandraDriver" url="jdbc:cassandra://{HOSTS}[/{DB}];dc={PARAM};sslenabled=true;[javax.net.ssl.truststore={PARAM2};][javax.net.ssl.truststorepassword={PARAM3};][javax.net.ssl.keystore={PARAM4};][javax.net.ssl.keystorepassword={PARAM5};]" authenticate="true" description="Use SSL" inst_label="KeySpace" param="DataCenter" param2="TrueStore" param3="TrueStorePassword" param4="KeyStore" param5="KeyStorePassword" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+        <driver cls="com.github.cassandra.jdbc.CassandraDriver" url="jdbc:c*://{HOSTS}[/{DB}];dc={PARAM}" authenticate="false" description="No Authentication" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+        <driver cls="com.github.cassandra.jdbc.CassandraDriver" url="jdbc:c*://{HOSTS}[/{DB}];dc={PARAM}" authenticate="true" description="With Authentication" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+    </database>
+    <database name="Databricks" authenticate_manual_url="false" local_description="If Databricks is in the cloud, choose 'Manually Edit' in the URL combo and&#xD;copy the URL from the Cloud Console." remote_description="For cloud installations choose 'Manually Edit' in the URL combo and copy the URL from the Cloud Console." >
+        <driver cls="com.simba.spark.jdbc.Driver" url="jdbc:databricks://{HOST}:{PORT}/default;transportMode=http;ssl=1;httpPath={PARAM2};AuthMech=3;UID=token;PWD={PARAM}" param="Token" param2="HTTP Path" authenticate="false" description="Standard" />
+        <driver cls="com.databricks.client.jdbc.Driver" url="jdbc:databricks://{HOST}:{PORT}/default;transportMode=http;ssl=1;httpPath={PARAM2};AuthMech=3;UID=token;PWD={PARAM};EnableArrow=0" param="Token" param2="HTTP Path" authenticate="false" description="Standard" />
+    </database>
+    <database name="Db2">
+        <driver cls="com.ibm.db2.jcc.DB2Driver" url="jdbc:db2://{HOST}[:{PORT}]/{DB}:retrieveMessagesFromServerOnGetMessage=true;" defo="true" description="DB2" website="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052342.html"/>
+        <driver cls="com.ibm.as400.access.AS400JDBCDriver" url="jdbc:as400://{HOST}/{DB}" description="AS400" inst_label="Default Schema" website="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052342.html"/>
+    </database>
+    <database name="Db2zOS">
+        <driver cls="com.ibm.db2.jcc.DB2Driver" url="jdbc:db2://{HOST}[:{PORT}]/{DB}:retrieveMessagesFromServerOnGetMessage=true;" description="Standard" website="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052342.html"/>
+        <driver cls="com.ibm.as400.access.AS400JDBCDriver" url="jdbc:as400://{HOST}[:{PORT}]/{DB};access=read call" description="AS400 Driver" website="https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.apdv.java.doc/src/tpc/imjcc_r0052342.html"/>
+    </database>
+    <database name="DuckDB">
+        <driver cls="org.duckdb.DuckDBDriver" url="jdbc:duckdb:{FILE}" description="Standard" website="https://duckdb.org/docs/api/java.html"/>
+    </database>
+    <database name="Hive" remote_description="Choose different authentication methods from the URL combo.">
+        <driver cls="org.apache.hive.jdbc.HiveDriver" url="jdbc:hive2://{HOST}:{PORT}" description="Standard" website="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-ConnectionURLFormat"/>
+        <driver cls="org.apache.hive.jdbc.HiveDriver" url="jdbc:hive2://{HOST}:{PORT};principal=hive/hive2_host@YOUR-REALM.COM" description="Using Kerberos - Requires more steps, please read the Help" website="https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-ConnectionURLFormat"/>
+        <driver cls="com.cloudera.hive.jdbc41.HS1Driver" url="jdbc:hive2://{HOST}:{PORT}/{DB};AuthMech=3;UID={USER};PWD={PASSWORD}" description="Using authentication" inst_label="Schema" website="https://www.cloudera.com/documentation/enterprise/5-5-x/topics/cdh_ig_hive_jdbc_install.html"/>
+        <driver cls="com.cloudera.hive.jdbc41.HS1Driver" url="jdbc:hive2://{HOST}:{PORT}/{DB};AuthMech=0;transportMode=binary;" description="No authentication" inst_label="Schema" website="https://www.cloudera.com/documentation/enterprise/5-5-x/topics/cdh_ig_hive_jdbc_install.html"/>
+        <driver cls="com.cloudera.hive.jdbc41.HS1Driver" url="jdbc:hive2://{HOST}:{PORT}/{DB}0;AuthMech=1;KrbRealm=EXAMPLE.COM;KrbHostFQDN=hs2node1.example.com;KrbServiceName=hive;KrbAuthType=2" description="Kerberos auth - edit pattern" inst_label="Schema" website="https://www.cloudera.com/documentation/enterprise/5-5-x/topics/cdh_ig_hive_jdbc_install.html"/>
+    </database>
+    <database name="HBase" local_description="Read the help about how to install Phoenix in HBase server and use the matching client to your server version." remote_description="Install Phoenix in HBase as described in Help. Check the JDBC driver to match your HBase version.">
+        <driver cls="org.apache.phoenix.jdbc.PhoenixDriver" url="jdbc:phoenix:{HOST}:{PORT}" description="Standard."/>
+    </database>
+    <database name="MonetDB" >
+        <driver cls="org.monetdb.jdbc.MonetDriver" url="jdbc:monetdb://{HOST}:{PORT}/{DB}" description="Simple connection"/>
+    </database>
+    <database name="Redshift" remote_description="Choose 'Manually Edit' in the URL combo and copy the URL from the cloud console.">
+        <driver cls="com.amazon.redshift.jdbc41.Driver;com.amazon.redshift.jdbc42.Driver" url="jdbc:redshift://{HOST}:{PORT}/{DB}" description="Standard" website="https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-options.html"/>
+    </database>
+    <database name="Redis">
+        <driver cls="com.wisecoders.dbschema.redis.RedisDriver" url="jdbc:redis://{HOST}:{PORT}/{DB}" description="Standard" website="https:dbschema.com/jdbc-driver/Redis.html"/>
+    </database>
+    <database name="Salesforce" local_description="Append to the password the Token generated on the Salesforce website.Details in Help." remote_description="The host can be login.salesforce.com, {your-domain}.sandbox.lightning.force.com, etc.">
+        <driver cls="com.wisecoders.dbschema.salesforce.JdbcDriver" url="jdbc:dbschema:salesforce://https://{HOST}/services/Soap/u/{PARAM}" param="API Version" description="Standard" website="https://dbschema.com"/>
+        <driver cls="com.wisecoders.dbschema.salesforce.JdbcDriver" url="jdbc:dbschema:salesforce://https://{HOST}/services/Soap/u/{PARAM}?sessionid={PARAM2}" authenticate="true" param="API Version" param2="SessionId" description="Using SessionId" website="https://dbschema.com"/>
+        <driver cls="com.wisecoders.dbschema.salesforce.JdbcDriver" url="jdbc:dbschema:salesforce://https://{HOST}/services/Soap/u/{PARAM}?tables=custom" description="Custom Tables" param="API Version" website="https://dbschema.com"/>
+        <driver cls="com.wisecoders.dbschema.salesforce.JdbcDriver" url="jdbc:dbschema:salesforce://https://{HOST}/services/Soap/u/{PARAM}?sessionid={PARAM2}&amp;tables=custom" authenticate="true" param="API Version" param2="SessionId" description="Using SessionId, Custom Tables" website="https://dbschema.com"/>
+        <driver cls="com.ascendix.jdbc.salesforce.ForceDriver" url="jdbc:ascendix:salesforce://;user={USER};password={PASSWORD}" description="Ascendix Email/Password Login" website="https://github.com/ascendix/salesforce-jdbc"/>
+        <driver cls="com.ascendix.jdbc.salesforce.ForceDriver" url="jdbc:ascendix:salesforce://;sessionId={PARAM2}" param2="SessionID" description="Ascendix SessionID Login" website="https://github.com/ascendix/salesforce-jdbc"/>
+        <driver cls="com.reliersoft.sforce.jdbc.Driver" url="jdbc:sforce://login.salesforce.com" description="Reliersoft Salesforce Driver" website="http://reliersoft.com/salesforce-jdbc-driver-documentation/"/>
+        <driver cls="com.claimvantage.force.jdbc.ForceMetaDataDriver" url="jdbc:datadirect:sforce://{HOST};User={USER};Password={PASSWORD}" description="DataDirect Trial Driver" website="https://dbschema.com"/>
+        <driver cls="cdata.jdbc.salesforce.SalesforceDriver" url="jdbc:salesforce:user={USER};password={PASSWORD}" description="CData Driver" website="http://cdn.cdata.com/help/RFB/jdbc/pg_connectionj.htm"/>
+        <driver cls="RSSBus.SalesForce.SalesForceDriver" url="jdbc:salesforce:user={USER};password={PASSWORD}" description="RSS Trial Driver" website="https://documentation.progress.com/output/DataDirect/jdbcquickstarts/salesforcejdbc_quickstart/index.html#page/sfjdbcquickstart%2Fpassing-the-connection-url.html%23wwID0EUWBI"/>
+    </database>
+    <database name="SnappyData" >
+        <driver cls="com.pivotal.gemfirexd.jdbc.ClientDriver" url="jdbc:snappydata:{HOST}:{PORT}" authenticate="true" description="Standard" website="http://gemfirexd.docs.pivotal.io/1.3.1/userguide/getting_started/3rd_party_connections.html"/>
+    </database>
+    <database name="Sqlite" >
+        <driver cls="org.sqlite.JDBC" url="jdbc:sqlite:{FILE}" authenticate="false" description="Standard" website="https://bitbucket.org/xerial/sqlite-jdbc"/>
+    </database>
+    <database name="SqlBase" >
+        <driver cls="jdbc.gupta.sqlbase.SqlbaseDriver" url="jdbc:sqlbase://{HOST}:{PORT}/{DB}" description="Standard" website="https://support.guptatechnologies.com/Docs/SQLBase/Books/connecting/connecting_jdbc.htm"/>
+    </database>
+    <database name="SqlServer" local_description="JDBC require to enable TCP/IP communication in SqlServer. Click for details." remote_description="JDBC require to enable TCP/IP in SqlServer and configure the Windows Firewall.&#xD;The host is the DNS name or IP (not the Windows computer name).">
+        <driver linux_compatible="true"  cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]user={USER};password={PASSWORD};trustServerCertificate=true" param="Instance" description="SQL Server Authentication" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" user_prompt_text="Usually 'sa'" skip_port_if_default="true" />
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]user={USER};password={PASSWORD};integratedSecurity=true;encrypt=true;trustServerCertificate=true" param="Instance" description="Windows Authentication" user_label="Windows User" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" user_prompt_text="Windows User" skip_port_if_default="true" />
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]integratedSecurity=true;trustServerCertificate=true" param="Instance" description="Windows Authentication, Current User" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" skip_port_if_default="true" />
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryPassword;selectMethod=cursor;trustServerCertificate=true" param="Instance" description="Active Directory with User and Password" authenticate="true" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" user_prompt_text="Active Directory User" skip_port_if_default="true" />
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryIntegrated;selectMethod=cursor;trustServerCertificate=true" param="Instance" description="Active Directory Integrated" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" skip_port_if_default="true" />
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}[:{PORT}];databaseName={DB};[instanceName={PARAM};]authentication=ActiveDirectoryInteractive;selectMethod=cursor;trustServerCertificate=true" param="Instance" description="Active Directory Interactive Multi-Factor Authentication" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017" skip_port_if_default="true" />
+
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}][/{DB}];user={USER};password={PASSWORD};ssl=request[;instance={PARAM}]" param="Instance" description="SQL Server Authentication" website="http://jtds.sourceforge.net/faq.html" user_prompt_text="Usually 'sa'"/>
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}]/{DB};domain={PARAM2};useNTLMv2=true;ssl=request[;instance={PARAM}]" param2="Windows Domain" param="Instance" description="Windows Authentication" website="http://jtds.sourceforge.net/faq.html" user_label="Windows User"  user_prompt_text="Windows User"/>
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}]/{DB};domain={PARAM2};useNTLMv2=true;ssl=request[;instance={PARAM}]" param2="Windows Domain" param="Instance" description="Windows Authentication, Current User" authenticate="false" website="http://jtds.sourceforge.net/faq.html"/>
+
+        <driver cls="weblogic.jdbc.mssqlserver4.Driver" url="jdbc:weblogic:mssqlserver4:{DB}@{HOST}:{PORT}" description="Weblogic Driver" website="https://docs.oracle.com/cd/E13222_01/wls/docs/classdocs/API_jmsq4.html"/>
+        <driver cls="com.ashna.jturbo.driver.Driver" url="jdbc:JTurbo://{HOST}:{PORT}/{DB}" description="JTurobo Driver" website="https://www.newatlanta.com/products/jturbo/self_help/docs/pre_3x/installation_notes.jsp"/>
+        <driver cls="com.inet.tds.TdsDriver" url="jdbc:inetdae:{HOST}:{PORT}?database={DB}" description="InetDae Driver" website="https://www.inetsoftware.de/products/jdbc-driver/ms-sql/faq"/>
+        <!-- <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:{PORT};databaseName={DB};[instanceName={PARAM};]user={USER};password={PASSWORD};integratedSecurity=true;" param="Instance" description="Native Driver - Windows Authentication" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017"/> -->
+        <!--<driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}]/{DB};domain={PARAM2};useNTLMv2=true[;instance={PARAM}];ssl=require" param2="Windows Domain" param="Instance" description="Jtds Driver - Windows Authentication, Use Encryption" website="http://jtds.sourceforge.net/faq.html"/> -->
+        <!--<driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}][/{DB}][;domain={PARAM}];integratedSecurity=true" param="Windows Domain" description="Windows Authentication"/>-->
+    </database>
+    <database name="AzureSQL" inherited_dbms="SqlServer" remote_description="Choose 'Manually Edit' in the URL combo and copy the URL from the Azure console." >
+    </database>
+    <database name="SqlServerBefore2006" local_description="Enable TCP/IP in the SqlServer" remote_description="Enable TCP/IP in the SqlServer and the Windows Firewall.&#xD;The host is the DNS name or IP.">
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:{PORT};databaseName={DB};[instanceName={PARAM};]integratedSecurity=true;TrustServerCertificate=True" param="Instance" description="Windows Authentication, Current User" authenticate="false" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017"/>
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:{PORT};databaseName={DB};[instanceName={PARAM};]user={USER};password={PASSWORD};integratedSecurity=true;TrustServerCertificate=True" param="Instance" description="Windows Authentication" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017"/>
+        <driver linux_compatible="false" cls="com.microsoft.sqlserver.jdbc.SQLServerDriver" url="jdbc:sqlserver://{HOST}:{PORT};databaseName={DB};user={USER};password={PASSWORD};TrustServerCertificate=True" description="Database Authentication" website="https://docs.microsoft.com/en-us/sql/connect/jdbc/building-the-connection-url?view=sql-server-2017"/>
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}][/{DB}];ssl=request[;instance={PARAM}]" param="Instance" description="SqlServer Authentication"  website="http://jtds.sourceforge.net/faq.html"/>
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}[:{PORT}][/{DB}];ssl=request;domain={PARAM};integratedSecurity=true" param="Windows Domain" description="Windows Authentication"  website="http://jtds.sourceforge.net/faq.html"/>
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sqlserver://{HOST}:{PORT}/{DB};ssl=request" description="Standard"  website="http://jtds.sourceforge.net/faq.html"/>
+        <driver cls="weblogic.jdbc.mssqlserver4.Driver" url="jdbc:weblogic:mssqlserver4:{DB}@{HOST}:{PORT}" description="Weblogic Driver" website="https://docs.oracle.com/cd/E13222_01/wls/docs/classdocs/API_jmsq4.html"/>
+        <driver cls="com.ashna.jturbo.driver.Driver" url="jdbc:JTurbo://{HOST}:{PORT}/{DB}" description="JTurbo Driver" website="https://www.newatlanta.com/products/jturbo/self_help/docs/pre_3x/installation_notes.jsp"/>
+        <driver cls="com.inet.tds.TdsDriver" url="jdbc:inetdae:{HOST}:{PORT}?database={DB}" description="InetDae Driver" website="https://www.inetsoftware.de/products/jdbc-driver/ms-sql/faq"/>
+    </database>
+    <database name="SAPAdaptiveServer" local_description="Enable TCP/IP in the database server" remote_description="Enable TCP/IP in the database server and the Windows firewall.">
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sybase://{HOST}[:{PORT}][/{DB}]" description="ASE Jtds Driver"/>
+        <driver cls="com.sybase.jdbc2.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="ASA/ASE Jdbc2" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+        <driver cls="com.sybase.jdbc3.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="ASA/ASE Jdbc3" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+        <driver cls="com.sybase.jdbc4.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="ASA/ASE Jdbc4" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+    </database>
+    <database name="SqlAnywhere" local_description="Please start the Network Server in the SQL Central" remote_description="Please start the Network Server in the SQL Central and&#xD;configure the Windows firewall." >
+        <driver cls="net.sourceforge.jtds.jdbc.Driver" url="jdbc:jtds:sybase://{HOST}[:{PORT}][/{DB}]" description="Standard" website="http://jtds.sourceforge.net/faq.html"/>
+        <driver cls="com.sybase.jdbc2.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="Jdbc2" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+        <driver cls="com.sybase.jdbc3.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="Jdbc3" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+        <driver cls="com.sybase.jdbc4.jdbc.SybDriver" url="jdbc:sybase:Tds:{HOST}:{PORT}/{DB}?LITERAL_PARAMS=true" description="Jdbc4" website="http://infocenter.sybase.com/help/index.jsp?topic=/com.sybase.infocenter.dc39001.0707/html/prjdbc0707/X32549.htm"/>
+        <driver cls="sap.jdbc4.sqlanywhere.IDriver" url="jdbc:sqlanywhere:HOST={HOST}:{PORT};DatabaseName={DB};" description="Jdbc4" website="http://dcx.sap.com/sqla170/en/html/3bd5b17c6c5f1014945fd2b7ec7cba6a.html"/>
+    </database>
+	<database name="CacheDb" >
+		<driver cls="com.intersys.jdbc.CacheDriver" url="jdbc:Cache://{HOST}:{PORT}/{DB}" description="Standard" website="https://docs.intersystems.com/latest/csp/docbook/DocBook.UI.Page.cls?KEY=BGJD_connecting"/>
+	</database>
+	<database name="Cloudscape" inherited_dbms="Derby" >
+		<driver cls="com.cloudscape.core.JDBCDriver" url="jdbc:cloudscape:{DB}" website="https://support.cs.nott.ac.uk/help/docs/java/JDK12EE/cloudscape/doc/html/coredocs/develop3.htm"/>
+		<driver cls="RmiJdbc.RJDriver" url="jdbc:rmi://{HOST}:{PORT}/jdbc:cloudscape:{DB}" description="Standard" website="https://sesamesoftware.com/solutions/jdbc-database-drivers-products/relational-junction-mdb-jdbc-driver/jdbc-database-drivers-mdb-rmi/"/>
+	</database>
+	<database name="Derby" local_description="Choose the connection method">
+		<driver cls="org.apache.derby.jdbc.ClientDriver" url="jdbc:derby:net:/{HOST}:{PORT}/{DB}"  description="Remote Connection" website="https://db.apache.org/derby/docs/10.11/devguide/cdevdvlp17453.html"/>
+		<driver cls="org.apache.derby.jdbc.EmbeddedDriver" url="jdbc:derby:{FOLDER}" authenticate="false" description="Local Connection" website="https://db.apache.org/derby/docs/10.11/devguide/cdevdvlp17453.html"/>
+	</database>
+	<database name="DaffodilDb" >
+		<driver cls="in.co.daffodil.db.jdbc.DaffodilDBDriver" url="jdbc:daffodilDB_embedded:{DB}"  description="Local Connection"/>
+		<driver cls="in.co.daffodil.db.rmi.RmiDaffodilDBDriver" url="jdbc:daffodilDB://{HOST}:{PORT}/{DB}"  description="Remote Connection"/>
+	</database>
+	<database name="Informix" >
+        <driver cls="com.informix.jdbc.IfxDriver" url="jdbc:informix-sqli://{HOST}:{PORT}/{DB}:informixserver={PARAM}" description="Standard" param="Server" website="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.jdbc_pg.doc/ids_jdbc_036.htm"/>
+        <driver cls="com.informix.jdbc.IfxDriver" url="jdbc:informix-sqli://{HOST}:{PORT}/{DB}:informixserver={PARAM}" description="No Authentication" authenticate="false" param="Server" website="https://www.ibm.com/support/knowledgecenter/en/SSGU8G_12.1.0/com.ibm.jdbc_pg.doc/ids_jdbc_036.htm"/>
+    </database>
+    <database name="Ingres" >
+        <driver cls="com.ingres.jdbc.IngresDriver" url="jdbc:ingres://{HOST}:{PARAM}/{DB};user={USER};password={PASSWORD};" param="Instance ( usual II7 )" description="Standard" website="https://docs.actian.com/ingres/11.0/index.html#page/QuickStart_Win/5._Connecting_to_Ingres_Using_JDBC.htm"/>
+    </database>
+	<database name="InstantDB" >
+		<driver cls="jdbc.idbDriver" url="jdbc:idb:{DB}" description="Standard"/>
+		<driver cls="org.enhydra.instantdb.jdbc.idbDriver" url="jdbc:idb:{DB}" description="Standard"/>
+	</database>
+	<database name="Interbase" >
+		<driver cls="interbase.interclient.Driver" url="jdbc:interbase://{HOST}/{FILE}" description="Standard"/>
+	</database>
+	<database name="JDataStore" >
+        <driver cls="com.borland.datastore.jdbc.DataStoreDriver" url="jdbc:borland:dslocal:{FILE}"  description="Local Connection"/>
+        <driver cls="com.borland.datastore.jdbc.DataStoreDriver" url="jdbc:borland:dsremote://{HOST}/{FILE}"  description="Remote Connection"/>
+	</database>
+    <database name="Exasol" >
+        <driver cls="com.exasol.jdbc.EXADriver" url="jdbc:exa:{HOST}[/{PARAM}]:{PORT}[;schema={DB}]" inst_label="Schema" param="Fingerprint" description="Standard" website="https://www.exasol.com/portal/display/DOC/JDBC+Drivers"/>
+    </database>
+    <database name="DBF" >
+        <driver cls="com.wisecoders.dbschema.dbf.JdbcDriver" url="jdbc:dbschema:dbf:/{FOLDER}?[charset={PARAM}]" authenticate="false" description="DbSchema Driver" param="Charset" website="https://dbschema.com/FoxPro-jdbc-driver.html"/>
+        <driver cls="com.hxtt.sql.dbf.DBFDriver" url="jdbc:dbf:/{FOLDER}" authenticate="false" description="HXTT Commercial Driver" website="http://www.hxtt.com/dbf/installation.html"/>
+    </database>
+    <database name="FoxPro" inherited_dbms="DBF"/>
+    <database name="XBase" inherited_dbms="DBF"/>
+	<database name="Firebird" >
+        <driver cls="org.firebirdsql.jdbc.FBDriver" url="jdbc:firebirdsql://{HOST}:{PORT}/{WIN_FILE}" description="Standard, Custom Port" website="https://github.com/FirebirdSQL/jaybird/wiki/JDBC-URLs"/>
+        <driver cls="org.firebirdsql.jdbc.FirebirdDriver" url="jdbc:firebirdsql:{HOST}:{WIN_FILE}" description="Standard" website="https://github.com/FirebirdSQL/jaybird/wiki/JDBC-URLs"/>
+	</database>
+    <database name="Frontbase" >
+        <driver cls="com.frontbase.jdbc.FBJDriver" url="jdbc:frontbase://{HOST}/{DB}" description="Standard" website="http://www.frontbase.com/download/JDBC/ReadMe.html"/>
+    </database>
+    <database name="Filemaker" >
+        <driver cls="com.filemaker.jdbc.Driver" url="jdbc:filemaker://{HOST}:{PORT}/{DB}" description="Standard" website="https://support.filemaker.com/s/article/Installing-FileMaker-JDBC-client-drivers-1503693055862?language=en_US"/>
+    </database>
+	<database name="H2" >
+        <driver cls="org.h2.Driver" url="jdbc:h2:file:{FILE}" authenticate="false" hide_extensions=".mv.db;.trace.db;.mv;.trace" description="File" website="http://www.h2database.com/html/features.html#database_url" share_connection="true"/>
+        <driver cls="org.h2.Driver" url="jdbc:h2:file:{FILE};case_insensitive_identifiers=true;DATABASE_TO_LOWER=TRUE;" authenticate="false" hide_extensions=".mv.db;.trace.db;.mv;.trace" description="File, Lower Case" website="http://www.h2database.com/html/features.html#database_url" share_connection="true"/>
+        <driver cls="org.h2.Driver" url="jdbc:h2:file:{FILE};case_insensitive_identifiers=true;user={USER};password={PASSWORD}" authenticate="true" hide_extensions=".mv.db;.trace.db;.mv;.trace" description="File, Using Authentication" website="http://www.h2database.com/html/features.html#database_url"/>
+        <driver cls="org.h2.Driver" url="jdbc:h2:tcp://{HOST}/~/{DB};user={USER};password={PASSWORD}" authenticate="true" description="Remove Server" website="http://www.h2database.com/html/features.html#database_url"/>
+	</database>
+    <database name="CSVFiles" local_description="Learn about the CSV formats in Help.&#13;Choose to load a single CSV file or multiple files from the JDBC URL combo.">
+        <driver cls="com.wisecoders.dbschema.csv.JdbcDriver" url="jdbc:dbschema:csv:{FILE}?[format={PARAM}&amp;][charset={PARAM2}&amp;][header={PARAM3}]" authenticate="false" param="CSV Format" param2="Charset" param3="Header Row" description="CSV File" website="https://dbschema.com/documentation/csv/"/>
+        <driver cls="com.wisecoders.dbschema.csv.JdbcDriver" url="jdbc:dbschema:csv:{FOLDER}?[format={PARAM}&amp;][charset={PARAM2}&amp;][header={PARAM3}]" authenticate="false" param="CSV Format" param2="Charset" param3="Header Row" description="Folder with CSV Files" website="https://dbschema.com/documentation/csv/"/>
+    </database>
+    <database name="HSql" description="Choose File/Remote Connection.&#13;Open OpenOffice (.odt) with file pointing to the folder/databaseName.">
+        <driver cls="org.hsqldb.jdbc.JDBCDriver" url="jdbc:hsqldb:file:{FILE}/{PARAM}" authenticate="false" description="Local Database" param="DbName (same as file name)"/>
+        <driver cls="org.hsqldb.jdbc.JDBCDriver" url="jdbc:hsqldb:hsql://{HOST}[:{PORT}]" description="Remote Connection"/>
+        <driver cls="org.hsqldb.JDBCDriver" url="jdbc:hsqldb:file:{FILE}/{PARAM}" authenticate="false" description="Local Database"  param="DbName (same as file name)"/>
+        <driver cls="org.hsqldb.jdbcDriver" url="jdbc:hsqldb:file:{FILE}/{PARAM}" authenticate="false" description="Local Database"  param="DbName (same as file name)"/>
+	</database>
+    <database name="SAPMaxDb" >
+        <driver cls="com.sap.dbtech.jdbc.DriverSapDB" url="jdbc:sapdb://{HOST}[:{PORT}]/{DB}" description="Standard"/>
+    </database>
+    <database name="SAPHana" >
+        <driver cls="com.sap.db.jdbc.Driver" url="jdbc:sap://{HOST}[:{PORT}]/?autocommit=false" description="Standard"/>
+        <driver cls="com.sap.db.jdbc.Driver" url="jdbc:sap://{HOST}[:{PORT}]/?[databaseName={DB}&amp;]user={USER}&amp;password={PASSWORD}&amp;autocommit=false" description="Specific DB"/>
+    </database>
+	<database name="Mimer" >
+		<driver cls="com.mimer.jdbc.Driver" url="jdbc:mimer://{HOST}[:{PORT}]/{DB}" description="Standard" website="https://download.mimer.com/pub/developer/docs/latest_jdbcguide_html/Using_JDBC.html"/>
+	</database>
+    <database name="Pervasive" >
+        <driver cls="com.pervasive.jdbc.v2.Driver" url="jdbc:pervasive://{HOST}:{PORT}/{DB}" description="Standard" website="https://docs.actian.com/psql/psqlv13/index.html#page/jdbc/jdbctasks.htm"/>
+    </database>
+    <database name="OrientDb" >
+        <driver cls="com.orientechnologies.orient.jdbc.OrientJdbcDriver" url="jdbc:orient:remote://{HOST}:{PORT}/{DB}" description="Standard" website="https://orientdb.com/docs/last/JDBC-Home.html"/>
+    </database>
+	<database name="PointBase" >
+        <driver cls="com.pointbase.jdbc.jdbcUniversalDriver" url="jdbc:pointbase:server://{HOST}:{PORT}/{DB}" description="Server" website="http://www.cs.toronto.edu/~nn/csc309-20085/guide/pointbase/docs/html/htmlfiles/dev_tutorial.html"/>
+        <driver cls="com.pointbase.jdbc.jdbcUniversalDriver" url="jdbc:pointbase:embedded://{DB}" description="Embedded" website="http://www.cs.toronto.edu/~nn/csc309-20085/guide/pointbase/docs/html/htmlfiles/dev_tutorial.html"/>
+	</database>
+    <database name="Vertica" >
+        <driver cls="com.vertica.jdbc.Driver" url="jdbc:vertica://{HOST}:{PORT}/{DB}" description="Standard" website="https://www.vertica.com/docs/9.2.x/HTML/Content/Authoring/ConnectingToVertica/ClientJDBC/CreatingAndConfiguringAConnection.htm"/>
+    </database>
+    <!-- I have an issue open by snowflake. https://github.com/snowflakedb/snowflake-jdbc/issues/274 For speed they recommend adding ?client_metadata_request_use_connection_ctx=true to URL -->
+    <database name="Snowflake" remote_description="Set the Host as '&lt;SNOWFLAKE-ACCOUNT&gt;.&lt;REGION&gt;.snowflakecomputing.com'.&#xD;If possible, choose the database and the warehouse, to avoid errors later." local_description="Press 'Learn How to Connect' button.">
+        <driver cls="com.snowflake.client.jdbc.SnowflakeDriver;net.snowflake.client.jdbc.SnowflakeDriver" url="jdbc:snowflake://{HOST}/?user={USER}[&amp;db={DB}][&amp;warehouse={PARAM}][&amp;schema={PARAM2}][&amp;role={PARAM3}]" param="Warehouse" param2="Schema" param3="Role" description="Standard" share_connection="true" website="https://docs.snowflake.net/manuals/user-guide/jdbc-configure.html"/>
+        <driver cls="com.snowflake.client.jdbc.SnowflakeDriver;net.snowflake.client.jdbc.SnowflakeDriver" url="jdbc:snowflake://{HOST}/?user={USER}&amp;authenticator=externalbrowser[&amp;db={DB}][&amp;warehouse={PARAM}][&amp;schema={PARAM2}][&amp;role={PARAM3}]" param="Warehouse" param2="Schema" param3="Role" description="External Browser (SSO/SAML) Authentication" share_connection="true" website="https://docs.snowflake.net/manuals/user-guide/jdbc-configure.html"/>
+        <driver cls="com.snowflake.client.jdbc.SnowflakeDriver;net.snowflake.client.jdbc.SnowflakeDriver" url="jdbc:snowflake://{HOST}/?user={USER}[&amp;db={DB}][&amp;warehouse={PARAM}][&amp;schema={PARAM2}][&amp;role={PARAM3}][&amp;private_key_file={PARAM4}][&amp;private_key_file_pwd={PARAM5}]" param="Warehouse" param2="Schema" param3="Role" param4="Private Key File" param5="Private Key Password" description="Private Key File" share_connection="true" website="https://docs.snowflake.net/manuals/user-guide/jdbc-configure.html"/>
+        <driver cls="com.snowflake.client.jdbc.SnowflakeDriver;net.snowflake.client.jdbc.SnowflakeDriver" url="jdbc:snowflake://{HOST}/?user={USER}[&amp;passcode={PARAM4}][&amp;db={DB}][&amp;warehouse={PARAM}][&amp;schema={PARAM2}][&amp;role={PARAM3}]" param="Warehouse" param2="Schema" param3="Role" param4="Pass Code" description="DUO Authentication" share_connection="true" website="https://docs.snowflake.net/manuals/user-guide/jdbc-configure.html"/>
+    </database>
+    <database name="Teradata" >
+        <driver cls="com.teradata.jdbc.TeraDriver" url="jdbc:teradata://{HOST}" description="Standard" website="https://developer.teradata.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html"/>
+        <driver cls="com.teradata.jdbc.TeraDriver" url="jdbc:teradata://{HOST}/DBS_PORT={PORT},DATABASE={DB}" description="Custom Port / Database" website="https://developer.teradata.com/doc/connectivity/jdbc/reference/current/jdbcug_chapter_2.html"/>
+    </database>
+    <database name="Transbase" >
+        <driver cls="transbase.jdbc.Driver" url="jdbc:transbase:/{HOST}:{PORT}/{DB}" description="Standard" website="https://www.transaction.de/fileadmin/downloads/Transbase/jdbc.xhtml"/>
+    </database>
+    <database name="CTreeAce" >
+        <driver cls="ctree.jdbc.ctreeDriver" url="jdbc:ctree://{HOST}:{PORT}/{DB}" description="Standard" website="https://docs.faircom.com/doc/jdbc/32782.htm"/>
+    </database>
+    <database name="GoogleBigQuery" remote_description="For setting custom host or port choose 'Manually Edit' in the URL combo.">
+        <driver cls="com.simba.googlebigquery.jdbc42.Driver;com.simba.googlebigquery.jdbc.Driver" url="jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;ProjectId={PARAM};OAuthType=0;OAuthServiceAcctEmail={PARAM2};OAuthPvtKeyPath={WIN_FILE}" authenticate="false" param="ProjectId" param2="GoogleEmail" inst_label="JSONorP12KeyFile" description="Google Service Account" website="https://cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers"/>
+        <driver cls="com.simba.googlebigquery.jdbc42.Driver;com.simba.googlebigquery.jdbc.Driver" url="jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;ProjectId={PARAM};OAuthType=1;" authenticate="false" param="ProjectId" description="Google User Account" website="https://cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers"/>
+        <driver cls="com.simba.googlebigquery.jdbc42.Driver;com.simba.googlebigquery.jdbc.Driver" url="jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;ProjectId={PARAM};OAuthType=2;OAuthAccessToken={PARAM};OAuthRefreshToken={PARAM3};OAuthClientSecret={PARAM4}" param="ProjectId" param2="Access Token" param3="Refresh Token" param4="Client Secret" authenticate="false" description="Access Tokens" website="https://cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers"/>
+        <driver cls="com.simba.googlebigquery.jdbc42.Driver;com.simba.googlebigquery.jdbc.Driver" url="jdbc:bigquery://https://www.googleapis.com/bigquery/v2:443;ProjectId={PARAM};OAuthType=3;" authenticate="false" param="ProjectId" description="Application Default Credentials" website="https://cloud.google.com/bigquery/docs/reference/odbc-jdbc-drivers"/>
+        <!--<driver cls="com.simba.googlebigquery.jdbc42.Driver" url="jdbc:bigquery://{HOST}:{PORT};ProjectId={DB};OAuthType=1;" inst_label="ProjectId" description="Simba Driver With Google Account Authentication" />
+        <driver cls="com.simba.googlebigquery.jdbc42.Driver" url="jdbc:bigquery://{HOST}:{PORT};ProjectId={DB};OAuthType=0;OAuthServiceAcctEmail=={USER};OAuthPvtKeyPath={PASSWORD}" inst_label="ProjectId" description="Simba Driver With Service Account Authentication &lt;/span&gt;&lt;br&gt;&lt;b&gt;Use the manual URL configuration to edit the Account Email and Key Path as in Simba documentation.&lt;/b&gt;" /> -->
+    </database>
+    <database name="GoogleCloudSpanner" remote_description="Configure GOOGLE_APPLICATION_CREDENTIALS variable as described in 'Help &amp; Tips'.&#xD;Credential path with backslash (Windows) or slash (Linux)">
+        <driver cls="com.google.cloud.spanner.jdbc.JdbcDriver" url="jdbc:cloudspanner:/projects/{DB}/instances/{PARAM}/databases/{PARAM2}" authenticate="false" param="InstanceID" param2="DatabaseID" inst_label="ProjectID" description="Standard" />
+        <driver cls="com.google.cloud.spanner.jdbc.JdbcDriver" url="jdbc:cloudspanner:/projects/{DB}/instances/{PARAM}/databases/{PARAM2}?credentials={PARAM3}" authenticate="false" param="InstanceID" param2="DatabaseID" param3="JSON Credentials '/' Filepath" inst_label="ProjectID" description="Service Account" />
+        <driver cls="com.google.cloud.spanner.jdbc.JdbcDriver" url="jdbc:cloudspanner://{HOST}:{PORT}/projects/{DB}/instances/{PARAM}/databases/{PARAM2}?autoConfigEmulator=true" authenticate="false" param="InstanceID" param2="DatabaseID" param3="JSON Credentials '/' Filepath" inst_label="ProjectID" description="ConfigEmulator with Host and Port" />
+    </database>
+    <database name="GoogleCloudSpannerPgDialect" inherited_dbms="GoogleCloudSpanner">
+    </database>
+    <database name="ThoughtSpot"  >
+        <driver cls="com.simba.client.core.jdbc4.SCJDBC4Driver" url="jdbc:simba://{HOST}:{PORT};DATABASE={DB}" description="Standard" website="https://docs.thoughtspot.com/5.2/data-integrate/clients/use-jdbc-driver.html"/>
+    </database>
+    <database name="Starburst">
+        <driver cls="io.trino.jdbc.TrinoDriver" url="jdbc:trino://{HOST}:{PORT}" description="Standard" website="https://docs.starburst.io/data-consumer/clients/jdbc.html" encode_password="true"/>
+    </database>
+    <database name="Impala">
+        <driver cls="com.cloudera.impala.jdbc.Driver" url="jdbc:impala://{HOST}:{PORT}" description="Standard" website="https://docs.cloudera.com/documentation/other/connectors/impala-jdbc/latest/Cloudera-JDBC-Driver-for-Impala-Install-Guide.pdf" encode_password="true"/>
+    </database>
+    <database name="Tibero"  website="https://www.tmaxsoft.com/products/tibero/" user_prompt_text="Can be 'tibero'...">
+        <driver cls="com.tmax.tibero.jdbc.TbDriver" url="jdbc:tibero:thin:@{HOST}[:{PORT}]:{DB}" inst_label="DB" description="Standard" website="https://technet.tmaxsoft.com/upload/download/online/tibero/pver-20140922-000001/tibero_jdbc/ch03.html" user_prompt_text="Can be 'tibero'"/>
+    </database>
+    <database name="Tarantool"  website="https://github.com/tarantool/tarantool-java/" user_prompt_text="Can be 'tarantool'...">
+        <driver cls="org.tarantool.jdbc.SQLDriver" url="jdbc:tarantool://{HOST}[:{PORT}]" description="Standard" website="https://github.com/tarantool/tarantool-java/" user_prompt_text="Can be 'tarantool'"/>
+    </database>
+    <database name="ScyllaDB" local_description="Find the DataCenter using 'nodetool status' or 'nodetool -h ::FFFF:127.0.0.1 status'" remote_description="Find the DataCenter using 'nodetool status' or 'nodetool -h ::FFFF:127.0.0.1 status'">
+    <driver cls="com.wisecoders.dbschema.scylladb.JdbcDriver" url="jdbc:scylladb://{HOSTS}[/{DB}];dc={PARAM}" description="Standard" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+    <driver cls="com.wisecoders.dbschema.scylladb.JdbcDriver" url="jdbc:scylladb://{HOSTS}[/{DB}];dc={PARAM}" authenticate="false" description="Without Authentication" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+    <driver cls="com.wisecoders.dbschema.scylladb.JdbcDriver" url="jdbc:scylladb://{HOSTS}[/{DB}];dc={PARAM};kerberos=true" authenticate="true" description="Use Kerberos" inst_label="KeySpace" param="DataCenter" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+    <driver cls="com.wisecoders.dbschema.scylladb.JdbcDriver" url="jdbc:scylladb://{HOSTS}[/{DB}];dc={PARAM};sslenabled=true;[javax.net.ssl.truststore={PARAM2};][javax.net.ssl.truststorepassword={PARAM3};][javax.net.ssl.keystore={PARAM4};][javax.net.ssl.keystorepassword={PARAM5};]" authenticate="true" description="Use SSL" inst_label="KeySpace" param="DataCenter" param2="TrueStore" param3="TrueStorePassword" param4="KeyStore" param5="KeyStorePassword" website="https://dbschema.com/cassandra-jdbc-driver.html"/>
+    </database>
+</drivers>

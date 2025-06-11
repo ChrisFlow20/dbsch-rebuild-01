@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types>
+		<type name="Int8" java="-6" precision="NONE" />
+		<type name="UInt8" java="-6" precision="NONE" />
+		<type name="Int16" java="5" precision="NONE" />
+		<type name="UInt16" java="5" precision="NONE" />
+		<type name="Int32" java="4" precision="NONE" />
+		<type name="UInt32" java="4" precision="NONE" />
+		<type name="Int64" java="-5" precision="NONE" />
+		<type name="UInt64" java="-5" precision="NONE" />
+		<type name="Int128" java="2" precision="NONE" />
+		<type name="UInt128" java="2" precision="NONE" />
+		<type name="Int256" java="2" precision="NONE" />
+		<type name="UInt256" java="2" precision="NONE" />
+		<type name="Float32" java="6" precision="NONE" />
+		<type name="Float64" java="8" precision="NONE" />
+		<type name="Decimal" java="3" precision="DECIMAL" />
+		<type name="Boolean" aliases="BOOL" java="16" precision="NONE" />
+		<type name="String" java="-1" precision="NONE" />
+		<type name="FixedString" java="-1" precision="LENGTH" />
+		<type name="UUID" java="102" precision="LENGTH" />
+		<type name="Date" java="91" precision="NONE" />
+		<type name="Date32" java="91" precision="NONE" />
+		<type name="DateTime" java="93" precision="LENGTH" defo_length="0"/>
+		<type name="DateTime64" java="93" precision="LENGTH" defo_length="0"/>
+		<type name="Enum" java="12" precision="ENUMERATION" />
+		<type name="LowCardinality" java="12" precision="NONE" pattern="LowCardinality(${options})" options="String|FixedString|Date|DateTime|Int8|Int32|Int64|Int128"/>
+		<type name="Array" java="2003" precision="NONE" pattern="LowCardinality(${options})" options="String|FixedString|Date|DateTime|Int8|Int32|Int64|Int128"/>
+		<type name="AggregateFunction" java="2003" precision="NONE" pattern="AggregateFunction(${options})" options="~Parameters~"/>
+		<type name="Json" java="2003" precision="NONE" />
+		<type name="Nested" java="2003" precision="NONE" />
+		<type name="Tuple" java="2003" precision="NONE" />
+		<type name="Nullable" java="2003" precision="NONE" pattern="NULLABLE(${options})" options="INT8|INT32|INT64|INT128"/>
+
+		<type name="LongText" java="-1" precision="NONE" />
+		<type name="MediumText" java="-1" precision="NONE" />
+		<type name="TinyText" java="-1" precision="NONE" />
+		<type name="Text" java="-1" precision="NONE" />
+		<type name="LongBlob" java="-1" precision="NONE" />
+		<type name="TinyBlob" java="-1" precision="NONE" />
+		<type name="MediumBlob" java="-1" precision="NONE" />
+		<type name="Blob" java="-1" precision="NONE" />
+		<type name="Varchar" java="-1" precision="NONE" />
+		<type name="Char" java="-1" precision="NONE" />
+
+	</types>
+</database>

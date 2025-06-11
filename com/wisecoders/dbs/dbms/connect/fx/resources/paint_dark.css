@@ -1,0 +1,36 @@
+.root {
+    -fx-font: 1em "Candara";
+    /* toolbar, buttons */
+    -fx-base: #535353;
+    /* dialog background */
+    -fx-background: #434546;
+    /* diagram background */
+    -fx-diagram-background: #3e3e3e;
+
+    /* make controls (buttons, thumb, etc.) slightly lighter */
+    -fx-color: derive(-fx-base, -10%);
+
+    /* text fields and table rows background */
+    -fx-control-inner-background: #45494a;
+    /* alternative rows */
+    -fx-control-inner-background-alt: derive(-fx-control-inner-background, 2.5%);
+
+    /* text colors depending on background's brightness */
+    -fx-light-text-color: rgb(220, 220, 240);
+    -fx-mid-text-color: rgb(200, 200, 200);
+    -fx-dark-text-color: rgb(180, 180, 180);
+
+    /* Selected text, items in menus, lists, trees, and tables; progress bars */
+    -fx-accent: rgb(0, 80, 100);
+
+    /* color of non-focused yet selected elements */
+    -fx-selection-bar-non-focused: rgb(50, 50, 50);
+    -fx-text-box-border: rgb(97, 97, 97);
+    /*-fx-box-border : transparent;*/
+    -fx-default-button: #4a8eb5;
+}
+
+
+.custom-pane {
+    custom-background: #990000;
+}

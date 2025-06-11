@@ -1,0 +1,23 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[No active warehouse selected]]></pattern>
+        <message><![CDATA[
+Please execute from the SQL Editor this statement (required only one time):<br>
+<b>ALTER USER name SET DEFAULT_WAREHOUSE = warehouse_name;</b>
+<br>Further details in <a href="https://docs.snowflake.com/en/sql-reference/sql/alter-user.html#syntax">Snowflake Documentation</a>.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[is not allowed to access Snowflake]]></pattern>
+        <message><![CDATA[
+This error is displayed when the customer account has an active Network Policy and the source IP address is not included in 'Allowed' IP block.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Got NULL connection.]]></pattern>
+        <message><![CDATA[
+If the Snowflake web URL is 'https://app.snowflake.com/xxxxxy/yyyyyy', the JDBC URL should be 'jdbc:snowflake://xxxxxx-yyyyyy.snowflakecomputing.com?client_metadata_request_use_connection_ctx=true'
+        ]]></message>
+    </advice>
+
+</advices>

@@ -1,0 +1,101 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Connection refused]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;Database may require to <span style='background:#fffdc6'>enable remote connections</span>. Press 'Learn How to Connect' button.<br>
+&raquo;&nbsp;The database user, password and port should be the same as set during database installation.<br>
+&raquo;&nbsp;Is the database started ? If installed to start automatically please check the <span style='background:#fffdc6'>Windows services</span>.<br>
+&raquo;&nbsp;The <span style='background:#fffdc6'>firewall</span> may block the access. Please check.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Network Adapter could not establish the connection|Connection timed out]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;Database may require to <span style='background:#fffdc6'>enable remote connections</span>. ? Press 'Learn How to Connect' button.<br>
+&raquo;&nbsp;Is the database started ? If installed to start automatically, please check in <span style='background:#fffdc6'>services</span>.<br>
+&raquo;&nbsp;The <span style='background:#fffdc6'>firewall</span> may block the access. Please check. <br>
+&raquo;&nbsp;Check the <span style='background:#fffdc6'>port</span> value.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[UnsupportedOperationException.*NOT_JAVA1.6]]></pattern>
+        <message>Your database driver may require to run DbSchema under Java 1.6. Your current Java is JAVA_VERSION
+        </message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[OutOfMemoryException]]></pattern>
+        <message><![CDATA[Your DbSchema model is very large. You can:
+<ul>
+<li>Increase memory settings in DbSchema.vmoptions or ./DbSchema.app/Contents/vmoptions.txt on Mac OS.
+<li>Exclude procedures and triggers from reverse engineer in the Selection Dialog.
+</ul>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Auth cancel]]></pattern>
+        <message>Check SSH tunnel user and password.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[UnsupportedClassVersionError]]></pattern>
+        <message>Please upgrade Java on your computer.
+If your DbSchema uses a bundled Java remove first the jre folder from DbSchema directory.
+Check the actual Java version in Help - About dialog.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Duplicate entry]]></pattern>
+        <message><![CDATA[
+Operation failed because columns which are part of PRIMARY KEYS or UNIQUE indexes contains duplicate values.
+List duplicates using a query like "SELECT &lt;column&gt;, count(*) FROM &lt;table&gt; GROUP BY &lt;column&gt; HAVING COUNT(*) &gt; 1"
+where &lt;table&gt; and &lt;column&gt; are your table and column.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[chiper 'aes256-cbc' is required]]></pattern>
+        <message><![CDATA[Some security jars has to be copied in the Java folder.
+Search on google for "the cipher 'aes256-cbc' is required" for details.
+If you are running the bundle DbSchema, remove the jre folder from Program Files/DbSchema and the default machine Java installation will be used.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[doesn't exist|object does not exist, or you do not have permission]]></pattern>
+        <message><![CDATA[
+ Press 'Refresh Model from Database' button to ensure that DbSchema model and the schemas in the database are the same.<br>
+ Please check if you have permissions to select from the table - try a select from the SQL editor.<br>
+ If none of this please write us back.
+ ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[PortForwarding.*Address already in use]]></pattern>
+        <message><![CDATA[
+ The SSH tunnel may fail because a database is running on this computer on the same port as the database you want to connect to.
+ Please stop the database on this computer.
+ ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[TLSv1]]></pattern>
+        <message><![CDATA[
+Edit the file JavaFolder/conf/security/java.security and remove the corresponding TLS record from disabled algorithms.
+Find the Java folder in Help / About dialog.
+This error occurs as you connect to an old database version. Some TLS versions are considered unsecure and were deprecated.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[PKIX]]></pattern>
+        <message><![CDATA[
+Add server certificates to the Connection Dialog / KeyStore tab.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[java.net.NoRouteToHostException]]></pattern>
+        <message><![CDATA[
+Ensure the host name is correct (press the Ping button to check) and no Firewall is blocking the communication.<br>
+Details in Help.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkLocalhost="true"><![CDATA[Connection refused: getsockopt]]></pattern>
+        <message><![CDATA[Use '127.0.0.1' instead of 'localhost'.
+        ]]></message>
+    </advice>
+</advices>
+

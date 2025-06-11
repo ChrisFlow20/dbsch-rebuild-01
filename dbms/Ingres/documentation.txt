@@ -1,0 +1,6 @@
+http://docs.ingres.com/
+login website for download dprutean / Pred...
+I have tried to implement ExecutionPlan like here http://community.ingres.com/wiki/Getting_Ingres_Qep_LockTrace_Using_JDBC
+Because it requires an environment variable which sets a disk log file, and the output is plain text, I gave up.
+
+WITH DEFAULT HAS TO BE FIXED

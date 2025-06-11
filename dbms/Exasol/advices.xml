@@ -1,0 +1,7 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[PKIX path building failed]]></pattern>
+        <message><![CDATA[The error specifies a fingerprint you can add to the JDBC URL.<br>Choose 'Edit Manually' in the JDBC URL and add the fingerprint.]]></message>
+    </advice>
+</advices>
+

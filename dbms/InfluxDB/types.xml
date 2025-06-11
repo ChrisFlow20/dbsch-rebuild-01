@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types>
+		<type name="boolean" java="16" precision="NONE" />
+		<type name="byte" java="-4" precision="NONE" />
+		<type name="string" java="-1" precision="NONE" />
+		<type name="duration" java="93" precision="NONE" />
+		<type name="float" java="6" precision="NONE" />
+		<type name="time" java="92" precision="NONE" />
+		<type name="integer" aliases="int" java="4" precision="NONE" />
+		<type name="uinteger" aliases="int8" java="-5" precision="NONE" />
+		<type name="null" java="0" precision="NONE" />
+	</types>
+</database>

@@ -1,0 +1,107 @@
+<advices>
+    <advice>
+        <pattern checkLocalhost="true"><![CDATA[pg_hba\.conf|Connection refused|connection attempt failed|getsockopt]]></pattern>
+        <message><![CDATA[
+Check the <a href="documentation:PostgreSQL/index.html#remote">pg_hba.conf file</a> to ensure that it allows connections from your application’s IP address.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkRemote="true"><![CDATA[pg_hba\.conf|Connection refused|connection attempt failed|getsockopt]]></pattern>
+        <message><![CDATA[
+Is the hostname correct? Press the Ping button.<br>
+Please <a href="documentation:PostgreSQL/index.html#remote">enable remote connections</a> by editing the pg_hba.conf file on server.<br>
+Further details in <a href="documentation:PostgreSQL/index.html#remote">Help</a>.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[password authentication failed for user]]></pattern>
+        <message><![CDATA[
+Make sure the password is correct.<br>
+Make sure the authentication method for your connection is set to md5 or scram-sha-256 instead of trust.<br>
+You can find this file in the PostgreSQL data directory. Look for lines like:<br>
+host all  all  127.0.0.1/32  md5<br>
+Change the password in PSQL by executing "ALTER USER postgres PASSWORD 'newPassword'".<br>
+Details in Help.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[invalid value for parameter "TimeZone]]></pattern>
+        <message><![CDATA[
+Check the database timezone settings in postgresql.conf. They should be similar with the operating system settings.<br>
+On linux operating system settings using the 'locale' command. 
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[type "(serial|bigserial)" does not exist]]></pattern>
+        <message><![CDATA[
+Serial and Bigserial are aliases for integer and bigint with autoincrement.<br>
+Converting a column to serial will fail in the database.<br>
+You may set the column default value from a sequence, like <i>nextval('seq_name')</i>.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[invalid value for parameter Timezone]]></pattern>
+        <message><![CDATA[This error can be caused by a timezone difference between the database server and current computer.<br>
+In Options Tab select the client Time Zone same as in the database server.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkRemote="true" ><![CDATA[failed|Der Verbindungsversuch schlug fehl|SocketTimeoutException]]></pattern>
+        <message><![CDATA[
+<li><a href="documentation:PostgreSQL/index.html#remote">Enable remote connections</a> on Postgres server by editing pg_hba.conf. Press the Help for details.
+<li>Press 'Ping' to test the host and port. The host should be reachable also from command prompt 'ping &lt;host&gt;'.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[there is no unique constraint matching given keys]]></pattern>
+        <message><![CDATA[
+The referred column(s) should be primary key or have an unique index.<br>
+This is a general database design requirement.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[cannot drop constraint.*because other objects depend on it]]></pattern>
+        <message><![CDATA[
+Dropping a Primary Key or Unique index may require to drop the related Foreign Keys first.<br>
+Please drop first all foreign keys referring the involved columns.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[could not be verified by hostnameverifier]]></pattern>
+        <message><![CDATA[
+Please use 'sslmode' in the JDBC URL with one of: 'disable|allow|prefer|require|verify-ca|verify-full'.<br>
+Use 'Edit Manually' in the URL field to set a custom URL.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[cannot run inside a transaction block]]></pattern>
+        <message><![CDATA[
+This require enabling auto-commit by disabling Model /Settings / Database Specific / Behavior/ Transaction / Disable Auto-Commit.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[there is no unique constraint matching given keys for referenced table]]></pattern>
+        <message><![CDATA[
+Databases require the column(s) referred by a foreign key to be primary keys or indexed unique and mandatory.<br>
+Please create first an unique index or Pk on the referred column(s).
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ReadPreferenceServerSelector]]></pattern>
+        <message><![CDATA[
+Choose 'Edit Manually' in the JDBC URL combo and add '&readPreference=secondary' to the URL.
+This will allow connecting to a secondary server.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[The server does not support SSL]]></pattern>
+        <message><![CDATA[
+Choose a different pattern in the JDBC URL pattern, without SSL.
+        ]]></message>
+    </advice>
+
+</advices>
+
+
+
+

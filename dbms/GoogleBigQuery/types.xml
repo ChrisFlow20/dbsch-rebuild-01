@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="int64" java="4" precision="NONE"/>
+        <type name="boolean" aliases="bool" java="16" precision="NONE"/>
+        <type name="string" java="12" precision="NONE"/>
+        <type name="struct&lt;?&gt;" java="4999544"/>
+        <type name="array" java="2003" precision="NONE" />
+        <type name="array&lt;integer&gt;" aliases="array&lt;int&gt;" java="2003" precision="NONE"/>
+        <type name="array&lt;double&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;long&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;string&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;struct&lt;?&gt;&gt;" aliases="list" java="4999545" precision="NONE"/>
+        <type name="geography" java="2002"/>
+        <type name="bytes" java="-6" precision="NONE"/>
+        <type name="date" java="91" precision="NONE"/>
+        <type name="datetime" java="93" precision="NONE" />
+        <type name="json" java="2000" precision="NONE"/>
+        <type name="time" java="92" precision="NONE"/>
+        <type name="timestamp" java="93" precision="NONE"/>
+        <type name="record" java="2003" precision="NONE"/>
+        <type name="numeric" java="2" precision="DECIMAL"/>
+        <type name="bytes" java="2" precision="NONE"/>
+        <type name="float" java="6" precision="NONE"/>
+        <type name="bignumeric" java="8" precision="DECIMAL"/>
+    </types>
+</database>

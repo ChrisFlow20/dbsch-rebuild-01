@@ -1,0 +1,66 @@
+<advices>
+    <advice>
+        <pattern checkLocalhost="true" ><![CDATA[Connection refused]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;If the server is on the Try to connect using 127.0.0.1 instead of localhost.<br>
+&raquo;&nbsp;Make sure the <a href='https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-windows/'>MongoDb service or mongod.exe</a> is started.<br>
+&raquo;&nbsp;Connect using a Java URL as in the <a href='https://docs.mongodb.com/manual/reference/connection-string/'>MongoDb documentation</a> using 'Use JDBC URL' tab.<br>
+&raquo;&nbsp;Check the DbSchema menu Help / Output logs. Press <a href="documentation:MongoDb/index.html">Learn How to Connect</a> button for details.<br>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkRemote="true" ><![CDATA[Connection refused]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;By default MongoDb allows only connections from the same computer. Edit the 'mongo.config' file and comment: bind_ip = 127.0.0.1. Alternative add more IPs comma separated. Restart mongod.<br>
+&raquo;&nbsp;Make sure the <a href='https://docs.mongodb.org/v3.0/tutorial/install-mongodb-on-windows/'>MongoDb service or mongod.exe</a> is started.<br>
+&raquo;&nbsp;Connect using a Java URL as in the <a href='https://docs.mongodb.com/manual/reference/connection-string/'>MongoDb documentation</a> using 'Use JDBC URL' tab.<br>
+&raquo;&nbsp;Check the DbSchema menu Help / Output logs. Press <a href="documentation:MongoDb/index.html">Learn How to Connect</a> button for details.<br>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[not authorized.*listDatabases]]></pattern>
+        <message><![CDATA[
+Current user has not the privileges to execute 'listDatabases' in MongoDb server.<br>
+Try to give the current user more privileges or <b>connect using a different user</b>.
+<br><br>
+Give more privileges by granting one of the roles 'userAdminAnyDatabase', 'dbAdminAnyDatabase', 'readAnyDatabase' as
+described <a href='http://docs.mongodb.org/master/tutorial/enable-authentication/'>here</a>.<br>
+A complete list of roles is <a href='http://docs.mongodb.org/manual/reference/built-in-roles/'>here</a>.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Authentication failed]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;Connect <b>without authentication</b> or using a different authentication from the JDBC URL combo.<br>
+&raquo;&nbsp;Make sure the username and password are correct, and the user has been added into the database.<br>
+&raquo;&nbsp;Make sure the Firewall is not blocking the communication.<br>
+&raquo;&nbsp;Switch to 'Edit Manually' in the JDBC URL combo and check the authentication parameters. For example:authSource=admin&authMechanism=SCRAM-SHA-1<br>
+&raquo;&nbsp;Check the MongoDb server logs.<br>
+       ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[$oid]]></pattern>
+        <message><![CDATA[
+Please use _oid instead. Sample: _oid:ObjectId("5ef043fbd4a7816bc568b8ef").
+       ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[is not defined in]]></pattern>
+        <message><![CDATA[
+Advice: Prefix collection with the database name or 'db' ( mydb.mycol or use mydb; db.mycol ). Collection should exists in the database.
+       ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[username can not be null|Password can not be null for PLAIN mechanism]]></pattern>
+        <message><![CDATA[
+Advice: Check the other connectivity methods from the Method / Driver combo.
+Consider also using an native URI with 'Use JDBC URL' tab.
+       ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[valid certification path]]></pattern>
+        <message><![CDATA[
+Advice: Please load the certificate into the Java Keystore as described <a href="https://mongodb.github.io/mongo-java-driver/3.0/driver/reference/connecting/ssl/">here</a>.
+       ]]></message>
+    </advice>
+</advices>

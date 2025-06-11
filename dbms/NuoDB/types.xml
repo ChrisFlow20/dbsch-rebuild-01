@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="CHARACTER" java="1" precision="LENGTH"/>
+        <type name="CHARACTER LARGE OBJECT" java="1" precision="NONE"/>
+        <type name="NATIONAL CHARACTER" java="1" precision="LENGTH"/>
+        <type name="TEXT" java="1" precision="NONE"/>
+        <type name="SMALLINT" java="5" precision="NONE" />
+        <type name="INTEGER" java="4" precision="NONE" />
+        <type name="BIGINT" java="-5" precision="NONE" />
+        <type name="DATE" java="91" precision="NONE"/>
+        <type name="TIME" java="92" precision="LENGTH"/>
+        <type name="TIMESTAMP" java="93" precision="LENGTH"/>
+        <type name="BOOLEAN" java="-7" precision="NONE"/>
+        <type name="BINARY" java="-2" precision="LENGTH"/>
+        <type name="BLOB" java="2004" precision="LENGTH"/>
+        <type name="BLOB" java="2004" precision="LENGTH"/>
+        <type name="BINARY" java="2004" precision="NONE"/>
+        <type name="VARYING" java="2004" precision="LENGTH"/>
+        <type name="VARCHAR" java="12" precision="LENGTH" />
+        <type name="VARBINARY" java="2004" precision="LENGTH"/>
+        <type name="ENUM" java="12" precision="ENUMERATION" />
+    </types>
+</database>

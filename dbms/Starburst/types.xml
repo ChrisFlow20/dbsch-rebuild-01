@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="boolean" java="-7" aliases="bool" precision="NONE"/>
+        <type name="tinyint" java="5" precision="NONE" />
+        <type name="smallint" java="5" precision="NONE" />
+        <type name="integer" aliases="int4" java="4" precision="NONE" />
+        <type name="bigint" aliases="int8,bitserial" java="-5" precision="NONE" />
+        <type name="real" aliases="float4" java="7" precision="NONE"/>
+        <type name="decimal" java="3" precision="DECIMAL"/>
+        <type name="double" aliases="float8" java="3" precision="NONE"/>
+        <type name="varchar" java="12" precision="LENGTH" defo_length="1000000000" options="COLLATE ~collationName~" options_title="Collation..."/>
+        <type name="char" aliases="bpchar" java="1" precision="LENGTH"/>
+        <type name="binary" java="-2" precision="NONE"/>
+        <type name="varbinary" java="-3" precision="LENGTH"/>
+        <type name="json" java="2000" precision="NONE" update_cast="to_json(?::json)"/>
+        <type name="date" java="91" precision="NONE"/>
+        <type name="time" java="92" precision="NONE"/>
+        <type name="time with time zone" java="-101" defo_length="6" />
+        <type name="timestamp" java="93" precision="LENGTH" defo_length="6"/>
+        <type name="timestamp with time zone" java="93" precision="LENGTH" defo_length="6"/>
+        <type name="interval day to second" java="-104" precision="PRECISION" />
+        <type name="array" java="2003" precision="NONE" />
+        <type name="map" java="4999544" precision="NONE"/>
+        <type name="struct" java="2002"/>
+        <type name="ipaddress" java="12" precision="NONE"/>
+        <type name="uuid" java="102" precision="NONE"/>
+        <type name="HyperLogLog" java="2002"/>
+        <type name="P4HyperLogLog" java="2002"/>
+        <type name="SetDigest" java="2002"/>
+        <type name="QDigest" java="2002"/>
+        <type name="TDigest" java="2002"/>
+    </types>
+</database>

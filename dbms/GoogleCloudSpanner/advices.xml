@@ -1,0 +1,7 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[io\.grpc\.StatusRuntimeException: UNAVAILABLE: io exception]]></pattern>
+        <message>The reason could be due to the ssl certificates not present in the truststore.jks.</message>
+    </advice>
+</advices>
+

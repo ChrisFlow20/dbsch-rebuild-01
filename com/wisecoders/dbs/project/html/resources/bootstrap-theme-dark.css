@@ -1,0 +1,49 @@
+body {
+  color:#a6b6c5;
+  background-color:#27292c;
+}
+
+.table {
+  color:#a6b6c5;
+}
+
+/* MODIFY in bootstrap.min.css --bs-body-bg:#2c3035; */
+.card {
+  background-color: #27292c;
+  /*box-shadow: 0 0 8px 4px rgba(0,0,0,0.2);*/
+}
+
+.table-bordered td, .table-bordered th {
+  border: 1px solid #555555;
+}
+.table>:not(caption)>*>* {
+  border-bottom-width: 0;
+}
+
+tr:nth-child(even) {
+   background-color: #313539;
+}
+
+h4, h5 {
+  color: #93b6d8;
+}
+
+th {
+  color: #93b6d8;
+}
+
+pre {
+  color: #e3dd70;
+}
+
+a {
+  color: #3177c2;
+}
+
+.card-title {
+  color: #359899;
+}
+
+.dataType{
+  color: #8b9eaf !important;
+}

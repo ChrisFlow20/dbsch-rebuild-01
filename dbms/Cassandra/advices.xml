@@ -1,0 +1,31 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Access Denied|REMOTE]]></pattern>
+        <message><![CDATA[
+Please check :
+    <ul>
+    <li>Check the username and password
+    <li>Disable the Windows Firewall
+    </ul>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkLocalhost="true" ><![CDATA[cannot connect]]></pattern>
+        <message><![CDATA[
+By default Cassandra is not listening on 'localhost'.\nPlease <b>use your computer IP</b> instead of 'localhost'.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[No Primary Key specified|No Primary Key specified]]></pattern>
+        <message><![CDATA[
+Select the Primary Key Tab to specify add the Primary Key, Distribution or Sorting Key.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[No node was available to execute the query|NoNodeAvailableException]]></pattern>
+        <message><![CDATA[
+Please check the datacenter value. Try 'datacenter1'.
+Run './nodetool status' on server to find the datacenter name.
+        ]]></message>
+    </advice>
+</advices>

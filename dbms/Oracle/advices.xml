@@ -1,0 +1,83 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[ORA-01005]]></pattern>
+        <message><![CDATA[Please enter the password
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-12505]]></pattern>
+        <message><![CDATA[Please check the value in the Service ( SID ) field. <br>
+Try to use the value 'orcl'<br>.
+Execute 'show parameter instance_name' in Oracle SqlPlus to find the right SID.<br>
+Alternative choose a different connection method from the Driver combo.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-17820|ORA-12541]]></pattern>
+        <message><![CDATA[Please check the TNS listener to be started and configured correctly.<br>
+Check that no firewall is blocking the communication.<br>
+The JDBC URL should be like jdbc:oracle:thin:@hostname:1521:dbname<br>
+and the Oracle listener should have a record '(ADDRESS=(PROTOCOL=TCP)(HOST=hostToListen)(PORT=1521))' where 1521 is the port.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-12514]]></pattern>
+        <message><![CDATA[Please check the Service Name value. <br>
+You can find out the correct value by executing 'lsnrctl services <listener name>' in the database.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-28009]]></pattern>
+        <message>Try to connect using the user 'sys as sysdba'</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-02296]]></pattern>
+        <message><![CDATA[Operation failed because some records contains empty values. <br>
+Set values for these records and then try again.<br>
+Relational Data Editor may help to find and edit this values. Use a IS EMPTY filter.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-02298]]></pattern>
+        <message><![CDATA[The existing table data is violating the foreign key condition. <br>
+Please check that referencing column data exist in the primary key column.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-02437]]></pattern>
+        <message><![CDATA[The table already contains records with no-unique values in the field you want to be unique. <br>
+Fix the duplicates first and then try again.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[NL Exception was generated]]></pattern>
+        <message><![CDATA[Use Custom URL to connect with SERVER=DEDICATED. Something like  <br>
+jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)))(HOST=host)(PORT=port)(CONNECT_DATA=(SERVICE_NAME=sid)(SERVER=DEDICATED))
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-12705]]></pattern>
+        <message><![CDATA[Check the current database language setting from sqlplus: select userenv('LANGUAGE') from dual; <br>
+In Windows Control Panel set the same language and restart the computer.
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-01882]]></pattern>
+        <message><![CDATA[Set in the Connection Dialog/ Settings Tab the timezone as in the Oracle server.<br>
+Alternative is to edit DbSchema.vmoptions and add '-Doracle.jdbc.timezoneAsRegion=false'.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-00900]]></pattern>
+        <message><![CDATA[If this is a PL/SQL procedure, call it using 'call <procedure>;'
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[ORA-12506]]></pattern>
+        <message><![CDATA[You need to add your IP address to the ACL list using "Add My Address" in the ACL options in oracle cloud.
+        ]]></message>
+    </advice>
+</advices>
+
+
+

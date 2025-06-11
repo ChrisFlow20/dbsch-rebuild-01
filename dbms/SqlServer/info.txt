@@ -1,0 +1,8 @@
+
+## MS Azure
+dragos.pruteanu@mapp.com
+marZaco...
+
+server: dprutean.database.windows.net/Predeal12
+
+jdbc:sqlserver://dprutean.database.windows.net:1433;database=test;user=dprutean@dprutean;password=Predeal12;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;

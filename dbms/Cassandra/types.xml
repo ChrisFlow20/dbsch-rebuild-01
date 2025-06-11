@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="INT" java="4" precision="NONE"/>
+        <type name="TEXT" java="12" precision="NONE"/>
+        <type name="VARCHAR" java="12" precision="NONE"/>
+        <type name="DATE" java="91" precision="NONE"/>
+        <type name="TIMESTAMP" java="93" precision="NONE"/>
+        <type name="DECIMAL" java="3" precision="NONE"/>
+
+        <type name="SMALLINT" java="5" precision="NONE" />
+        <type name="TINYINT" java="-6" precision="NONE" />
+        <type name="BIGINT" java="-5" precision="NONE"/>
+        <type name="BLOB" java="2004" precision="NONE"/>
+        <type name="BOOLEAN" java="16" precision="NONE"/>
+        <type name="COUNTER" java="-5" precision="NONE"/>
+        <type name="DOUBLE" java="8" precision="NONE"/>
+        <type name="FLOAT" java="6" precision="NONE"/>
+        <type name="INET" java="70" precision="NONE"/>
+        <type name="LIST" java="4999545" precision="NONE"/>
+        <type name="MAP" java="4999544" precision="NONE"/>
+        <type name="SET" java="4999545" precision="NONE"/>
+        <type name="VARINT" java="4" precision="NONE"/>
+        <type name="VARBINARY" java="-3" precision="LENGTH"/>
+        <type name="LONGVARCHAR" java="-1" precision="LENGTH"/>
+        <type name="COUNTER" java="4" precision="NONE"/>
+        <type name="SET" java="2003" precision="NONE"/>
+        <type name="ASCII" java="12" precision="NONE"/>
+        <type name="TIME" java="92" precision="NONE"/>
+        <type name="UUID" java="102" precision="NONE"/>
+        <type name="SET&lt;INT&gt;" java="4999545" precision="NONE"/>
+        <type name="SET&lt;TEXT&gt;" java="4999545" precision="NONE"/>
+        <type name="MAP&lt;TEXT,TEXT&gt;" java="4999544" precision="NONE"/>
+    </types>
+</database>

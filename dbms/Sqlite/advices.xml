@@ -1,0 +1,36 @@
+<advices>
+    <advice>
+        <pattern><![CDATA["AUTOINCREMENT": syntax error]]></pattern>
+        <message><![CDATA[In Sqlite there is not need to set columns as autoincrement.<br>
+            All primary keys have the default value autoincrement ( you have to leave them empty by inserts ).
+            ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[VirtualSpatialIndex]]></pattern>
+        <message>The driver version does not match the database file version. Please check the driver file.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[near "DROP": syntax error]]></pattern>
+        <message><![CDATA[If you tried to drop a foreign key, the operation may fail.<br>
+        Sqlite does not implement the drop statement, you have to recreate the table without foreign key and copy the data.<br>
+        Post an issue on Sqlite website, after many requests they will consider fixing this problem.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Error parsing date|Unparseable date]]></pattern>
+        <message><![CDATA[In the Connection Dialog Settings Tab set in the Connection Properties<br>
+        <pre>date_string_format=yyyy-MM-dd hh.mm.ss a
+        </pre><br>
+        Ask ChatGPT which is your Java date format, providing one sample date.<br>
+        Sqlite date format is not consistent among different computers.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Access is denied]]></pattern>
+        <message><![CDATA[Sqlite has limited access rights. Try to use a different location.
+        ]]></message>
+    </advice>
+</advices>
+
+
+

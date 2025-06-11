@@ -1,0 +1,9 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[password authentication failed]]></pattern>
+        <message><![CDATA[
+You may need to generate a token in the Azure Console and use the token as password in DbSchema.
+        ]]></message>
+    </advice>
+
+</advices>

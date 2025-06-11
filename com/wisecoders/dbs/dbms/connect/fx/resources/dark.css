@@ -1,0 +1,12 @@
+.background {
+    -fx-background-color: #1d1d1d;
+}
+
+.tree-view {
+    -fx-font: 12px Monospaced;
+    -fx-base: #1d1d1d;
+    -fx-control-inner-background: #1d1d1d;
+    -fx-background-color: #1d1d1d;
+    -fx-padding: 5;
+}
+

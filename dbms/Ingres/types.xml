@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types >
+		<type name="long nvarchar" java="-16" precision="NONE" />
+		<type name="nchar" java="-15" precision="LENGTH" />
+		<type name="nvarchar" java="-9" precision="LENGTH" />
+		<type name="integer1" java="-6" precision="NONE" />
+		<type name="bigint" java="-5" precision="NONE" />
+		<type name="long byte" java="-4" precision="NONE" />
+		<type name="byte varying" java="-3" precision="LENGTH" />
+		<type name="byte" java="-2" precision="LENGTH" />
+		<type name="long varchar" java="-1" precision="NONE" />
+		<type name="char" java="1" precision="LENGTH" />
+		<type name="decimal" java="3" precision="DECIMAL" />
+		<type name="integer" java="4" precision="NONE" />
+		<type name="smallint" java="5" precision="NONE" />
+		<type name="float" java="6" precision="DECIMAL" />
+		<type name="real" java="7" precision="NONE" />
+		<type name="double precision" java="8" precision="NONE" />
+		<type name="varchar" java="12" precision="LENGTH" />
+		<type name="boolean" java="16" precision="NONE" />
+		<type name="ansidate" java="91" precision="NONE" />
+		<type name="time" java="92" precision="NONE" />
+		<type name="timestamp" java="93" precision="NONE" />
+		<type name="ingresdate" java="93" precision="NONE" />
+	</types>
+</database>

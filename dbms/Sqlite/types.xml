@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="ANY" java="1111" precision="NONE" />
+        <type name="INTEGER" java="4" precision="NONE" aliases="BIGINT,TINYINT,SMALLINT,MEDIUMINT,BIGINT,UNSIGNED BIG INT,INT2,INT8"/>
+        <type name="REAL" java="8" precision="DECIMAL"  defo_length="2000000000" defo_decimal="10" aliases="DOUBLE,DOUBLE PRECISION,FLOAT"/>
+        <type name="TEXT" java="-1" precision="NONE" defo_length="0" aliases="CHARACTER,VARCHAR,VARYING CHARACTER,NCHAR,NATIVE CHARACTER,NVARCHAR,CLOB"/>
+        <type name="BLOB" java="2004" precision="NONE" />
+        <!-- INT required by STRICT tables. Cannot use it as alias -->
+        <type name="INT" java="4" precision="NONE" />
+        <type name="NUMERIC" java="2" precision="DECIMAL" aliases="DECIMAL,BOOLEAN,DATE,DATETIME"/>
+
+        <type name="BINARY" java="-2" precision="LENGTH" />
+        <type name="BIT" java="-7" precision="NONE" />
+        <type name="CHAR" java="1" precision="LENGTH" />
+        <type name="DATE" java="91" precision="NONE" />
+        <type name="DATETIME" java="93" precision="NONE" />
+        <type name="DECIMAL" java="3" precision="PRECISION" />
+        <type name="DOUBLE" java="8" precision="DECIMAL" />
+        <type name="DOUBLE PRECISION" java="8" precision="DECIMAL" />
+        <type name="ENUM" java="12" precision="ENUMERATION" />
+        <type name="FLOAT" java="7" precision="DECIMAL" />
+        <type name="LONG VARBINARY" java="-4" precision="NONE" />
+        <type name="LONG VARCHAR" java="-1" precision="NONE" />
+        <type name="LONGBLOB" java="-4" precision="NONE" />
+        <type name="UNSIGNED BIGINT" java="-5" precision="NONE" />
+
+    </types>
+</database>

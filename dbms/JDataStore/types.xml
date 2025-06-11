@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types >
+		<type name="BIGINT" java="-5" precision="NONE" />
+		<type name="BINARY" java="-2" precision="LENGTH" />
+		<type name="BIT" java="-7" precision="NONE" />
+		<type name="BLOB" java="2004" precision="NONE" />
+		<type name="BOOL" java="-7" precision="NONE" />
+		<type name="CHAR" java="1" precision="LENGTH" />
+		<type name="DATE" java="91" precision="NONE" />
+		<type name="DATETIME" java="93" precision="NONE" />
+		<type name="DECIMAL" java="3" precision="DECIMAL" />
+		<type name="DOUBLE" java="8" precision="NONE" />
+		<type name="ENUM" java="12" precision="ENUMERATION" />
+		<type name="FLOAT" java="7" precision="DECIMAL" />
+		<type name="INT" java="4" precision="NONE" />
+		<!-- <type name="INTEGER" java="4" precision="NONE" /> -->
+		<type name="LONG VARBINARY" java="-4" precision="NONE" />
+		<type name="LONG VARCHAR" java="-1" precision="NONE" />
+		<type name="LONGBLOB" java="-4" precision="NONE" />
+		<type name="LONGTEXT" java="-1" precision="NONE" />
+		<type name="MEDIUMBLOB" java="-4" precision="NONE" />
+		<type name="MEDIUMINT" java="4" precision="PRECISION" />
+		<type name="MEDIUMTEXT" java="-1" precision="NONE" />
+		<type name="NUMERIC" java="2" precision="DECIMAL" />
+		<type name="REAL" java="8" precision="DECIMAL" />
+		<type name="SET" java="12" precision="ENUMERATION" />
+		<type name="SMALLINT" java="5" precision="NONE" />
+		<type name="TEXT" java="-1" precision="NONE" />
+		<type name="TIME" java="92" precision="NONE" />
+		<type name="TIMESTAMP" java="93" precision="NONE" />
+		<type name="TINYBLOB" java="-4" precision="NONE" />
+		<type name="TINYINT" java="-6" precision="NONE" />
+		<type name="TINYTEXT" java="-1" precision="NONE" />
+		<type name="VARBINARY" java="-3" precision="LENGTH" />
+		<type name="VARCHAR" java="12" precision="LENGTH" />
+	</types>
+</database>

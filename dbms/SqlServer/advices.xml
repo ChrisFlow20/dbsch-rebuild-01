@@ -1,0 +1,137 @@
+<advices>
+    <advice checkLocalhost="true">
+        <pattern><![CDATA[ The TCP/IP connection to the host localhost, port 1433 has failed|SocketTimeoutException]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#tcpip">Enable TCP/IP in SqlServer Configuration Manager</a>.<br>
+&raquo;&nbsp;Check if the user name, password and the database to run (Windows services)<br>
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Connection timed out|Unknown packet type|packet_type_0x48|Connection reset|SocketTimeoutException]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#tcpip">Enable TCP/IP in SqlServer Configuration Manager</a>.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#hostname">Use the TCIP/IP HostName, not the Windows computername</a>.<br>
+&raquo;&nbsp;Disable or configure the Windows Firewall on server.<br>
+&raquo;&nbsp;Press the ping button<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable Mixed Mode</a> to connect using database authentication.<br>
+&raquo;&nbsp;Check if the user name, password and the database to run (Windows services)<br>
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Connection refused|Access denied for user|is running on the host and accepting TCP\/IP connections|TCP\/IP]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#tcpip">Enable TCP/IP in SqlServer Configuration Manager</a>.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#hostname">Use the TCIP/IP HostName, not the Windows computername</a>.<br>
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable Mixed Mode</a> to connect using database authentication.<br>
+&raquo;&nbsp;Press the Ping button.<br>
+&raquo;&nbsp;Disable or configure the Windows Firewall on server.<br>
+&raquo;&nbsp;Check the user name, password and the database to run (Windows services)<br>
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Unknown server host name]]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;Try to use the IP instead of the host name. Get the IP by executing 'ipconfig' from command prompt on server.<br>
+&raquo;&nbsp;Check the hostname by right-clicking 'Computer' in Windows Explorer and then Properties.<br>
+&raquo;&nbsp;Press the ping button.<br>
+    ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[The ALTER TABLE statement conflicted with the FOREIGN KEY constraint]]></pattern>
+        <message><![CDATA[
+    Creating a Foreign Key may fail if values in the referring column does not exists in the primary key column.<br>
+    Try a 'SELECT <col> FROM <ref_table> WHERE col NOT IN ( SELECT <pkcol> FROM <pk_table> )'
+    ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Login failed for user|'sa']]></pattern>
+        <message><![CDATA[
+&raquo;&nbsp;<a href="documentation:SqlServer/index.html#mixed">Enable mixed mode</a> to login using database authentication<br>
+&raquo;&nbsp;Check the help about how to <a href="documentation:SqlServer/index.html#reset_sa_password">change database user password</a>.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Cannot insert the value NULL into column]]></pattern>
+        <message>Columns created as NOT NULL does not accept empty ( NULL ) values. Enter a value.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Cannot insert the value NULL into column]]></pattern>
+        <message>Columns created as NOT NULL does not accept empty ( NULL ) values. Enter a value.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Incorrect syntax near]]></pattern>
+        <message><![CDATA[
+ Please check all parameters to be set.<br>
+ From the driver pop-up you can choose a different connection method.<br>
+ Check the help for details.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[The object.*is dependent on column]]></pattern>
+        <message><![CDATA[
+ If column has a default value you have to drop the default value constraint from SQL Editor using: <br>
+ ALTER TABLE {table_name} DROP CONSTRAINT {constraint_name};<br>
+ where the {constraint_name} is the object name in the error.
+ ]]></message>
+    </advice>
+    <advice>
+        <pattern checkWindows="true"><![CDATA[mssql-jdbc_auth-9\.2\.0\.x64|Native SSPI library not loaded]]></pattern>
+        <message><![CDATA[
+Two files mssql-jdbc_auth-9.2.0.x64.dll and ntlmauth.dll has to be copied from DbSchema/config/util folder in Java bin folder.<br>
+See the used Java location in DbSchema Help / About dialog. Mode details in Help.<br>
+DbSchema installer should copy this files, if not please report this issue.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern checkMac="true"><![CDATA[mssql-jdbc_auth-9.2.0.x64|Native SSPI library not loaded]]></pattern>
+        <message><![CDATA[
+Choose 'Database Authentication' in connection dialog and enable Mixed Mode in SqlServer as described in Help.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[version TLS]]></pattern>
+        <message><![CDATA[
+Choose 'Manually Edit' in the JDBC URL combo and add 'sslProtocol=TLSv1.2' with possible values TLS, TLSv1, TLSV1.1, TLSv1.2 .
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[TLS1\d is not accepted by client preferences]]></pattern>
+        <message><![CDATA[
+OpenJDK 17 disabled TLS 1.0/1.1 as being unsecure. Please enable TLS 1.2 on your database server. Check in Google how to enable.<br>
+Alternatively, edit jre/conf/security/java.security and remove TLSv1, TLSv1.1 from the line 'jdk.tls.disabledAlgorithms=...'<br>
+The Java folder is showing in the Help /About Dialog.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Cannot drop the schema]]></pattern>
+        <message><![CDATA[
+The schema must be empty.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[cursors not allowed|Cursor support is not an implemented]]></pattern>
+        <message><![CDATA[
+Are you using Azure SQL Pool? Please edit the JDBC URL ( you can choose Edit Manually in the URL combo )<br>
+and remove the 'selectMethod=cursor' parameter, or use 'selectMethod=direct'.
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[is not able to access the database|under the current security context]]></pattern>
+        <message><![CDATA[
+Execute this into the database:
+USE {database};
+ALTER USER {user} WITH login = {login};
+or
+USE {database};
+EXEC  sp_change_users_login @Action='update_one', @UserNamePattern='{userLogin}',@LoginName='{userLogin}';
+        ]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[PKIX]]></pattern>
+        <message><![CDATA[
+Add server certificates to the Connection Dialog / KeyStore tab, or
+add integratedSecurity=true;trustServerCertificate=true to the JDBC URL ( choose 'Manual' in JDBC URL combo ).
+        ]]></message>
+    </advice>
+</advices>
+

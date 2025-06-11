@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="bigint" java="-5" precision="NONE"/>
+        <type name="boolean" aliases="bool" java="16" precision="NONE"/>
+        <type name="char" java="1" precision="LENGTH" />
+        <type name="date" java="91" precision="NONE"/>
+        <type name="decimal" java="3" precision="PRECISION" />
+        <type name="double" java="8" precision="NONE" />
+        <type name="float" java="6" precision="DECIMAL"/>
+        <type name="int" java="4" precision="NONE"/>
+        <type name="real" java="7" precision="NONE"/>
+        <type name="smallint" java="5" precision="NONE" />
+        <type name="string" java="12" precision="NONE"/>
+        <type name="timestamp" java="93" precision="NONE"/>
+        <type name="tinyint" java="-6" precision="NONE" />
+        <type name="varchar" java="12" precision="LENGTH" />
+        <type name="struct&lt;?&gt;" java="4999544"/>
+        <type name="array" java="2003" precision="NONE" />
+        <type name="array&lt;integer&gt;" aliases="array&lt;int&gt;" java="2003" precision="NONE"/>
+        <type name="array&lt;double&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;long&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;string&gt;" aliases="list" java="2003" precision="NONE"/>
+        <type name="array&lt;struct&lt;?&gt;&gt;" aliases="list" java="4999545" precision="NONE"/>
+        <type name="map" java="4999544" precision="NONE"/>
+    </types>
+</database>

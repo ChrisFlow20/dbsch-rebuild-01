@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="INTERVAL DAY TO SECOND" java="-104" defo_length="2" />
+        <type name="INTERVAL YEAR TO SECOND" java="-103" defo_length="2" />
+        <type name="NUMBER" java="2" precision="DECIMAL" defo_length="22" defo_decimal="0"/>
+        <type name="LONG RAW" java="-4" precision="LENGTH"/>
+        <type name="RAW" java="-3" precision="LENGTH"/>
+        <type name="INTEGER" java="4" precision="NONE" />
+        <type name="LONG" java="-1"/>
+        <type name="CHAR" java="1" precision="LENGTH" pattern="CHAR(${length} ${options})" options="char"/>
+        <type name="NCHAR" java="1" precision="LENGTH" pattern="NCHAR(${length} ${options})" options="char"/>
+        <type name="FLOAT" java="6" precision="DECIMAL"/>
+        <type name="REAL" java="7" precision="DECIMAL"/>
+        <type name="VARCHAR2" java="12" precision="LENGTH" pattern="VARCHAR2(${lengthStr} ${options})" options="char"/>
+        <type name="NVARCHAR2" java="12" precision="LENGTH" pattern="NVARCHAR2(${lengthStr} ${options})" options="char"/>
+        <type name="DATE" java="91"/>
+        <type name="TIMESTAMP" java="93" precision="LENGTH" defo_length="6" />
+        <type name="TIMESTAMP WITH TIME ZONE" java="-101" defo_length="6" />
+        <type name="TIMESTAMP WITH LOCAL TIME ZONE" java="-102" defo_length="6" />
+        <type name="STRUCT" java="2002"/>
+        <type name="BLOB" java="2004"/>
+        <type name="CLOB" java="2005"/>
+        <type name="REF" java="2006"/>
+        <type name="XMLTYPE" java="2009"/>
+        <type name="SDO_GEOMETRY" java="1111"/>
+    </types>
+</database>

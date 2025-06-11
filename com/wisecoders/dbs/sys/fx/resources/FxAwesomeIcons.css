@@ -1,0 +1,16 @@
+.root{
+  -icons-color: rgb(61,114,144);
+}
+
+.icons{
+    -fx-font-family: 'FontAwesome';
+    -fx-font-size: 18px;
+
+    /*-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );*/
+    -fx-text-fill: white;
+}
+
+/*
+.icons:hover{
+    -fx-text-fill: blue;
+} */

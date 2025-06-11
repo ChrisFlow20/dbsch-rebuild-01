@@ -1,0 +1,35 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Unable to complete network request to host]]></pattern>
+        <message><![CDATA[Please check:
+        <ul>
+        <li>Press 'ping' to make sure the port is accessible.<br>
+        <li>Check firewalls.<br>
+        <li>Edit /etc/firebird/2.5/firebird.conf line 'RemoteBindAddress=localhost' to 'RemoteBindAddress='</a>
+        </ul>
+]]></message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[I/O error for file]]></pattern>
+        <message>Please check the database name and try again.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Bad connection string: '/']]></pattern>
+        <message>Please check the Help and down on the page read how to create a Firebird database.</message>
+    </advice>
+    <advice>
+        <pattern><![CDATA[Incompatible wire encryption]]></pattern>
+        <message><![CDATA[This requires to enable WireCrypt in firebird.conf:
+        <ul>
+        <li><a href="https://www.firebirdsql.org/file/documentation/drivers_documentation/java/3.0.2/release_notes.html#notes-on-firebird-3-support">https://www.firebirdsql.org/file/documentation/drivers_documentation/java/3.0.2/release_notes.html#notes-on-firebird-3-support</a><br>
+        <li><a href="https://github.com/FirebirdSQL/jaybird/wiki/Jaybird-and-Firebird-3">https://github.com/FirebirdSQL/jaybird/wiki/Jaybird-and-Firebird-3</a>
+        </ul>
+]]></message>
+    </advice>
+    <advice>
+    <pattern><![CDATA[335545106]]></pattern>
+    <message><![CDATA[In firebird.conf set 'AuthServer = Srp256, Srp'
+]]></message>
+</advice>
+</advices>
+

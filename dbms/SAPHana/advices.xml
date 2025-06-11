@@ -1,0 +1,8 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[can't drop without CASCADE specification]]></pattern>
+        <message><![CDATA[
+Need to drop first the foreign keys referring the table.
+        ]]></message>
+    </advice>
+</advices>

@@ -1,0 +1,8 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Connection refused|Access denied for user]]></pattern>
+        <message>Enable the Mixed Mode Authentication on server. Details in Help.</message>
+    </advice>
+</advices>
+
+

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="boolean" java="-7" precision="NONE"/>
+        <type name="int"  java="4" precision="NONE" />
+        <type name="smallint" java="5" precision="NONE" />
+        <type name="tinyint" java="-6" precision="NONE" />
+        <type name="bigint" aliases="int8" java="-5" precision="NONE" />
+        <type name="decimal" java="3" precision="DECIMAL"/>
+        <type name="double" java="8" precision="DECIMAL"/>
+        <type name="real" aliases="float4" java="7" precision="NONE"/>
+        <type name="time" java="92" precision="NONE"/>
+        <type name="date" java="91" precision="NONE"/>
+        <type name="timestamp" java="93" precision="NONE"/>
+        <type name="varchar" java="12" precision="LENGTH" defo_length="1000000000"/>
+        <type name="char" aliases="bpchar" java="1" precision="LENGTH"/>
+        <type name="uuid" java="102" precision="NONE"/>
+        <type name="binary" java="-2" precision="NONE"/>
+        <type name="geometry" java="1111" precision="NONE" />
+    </types>
+</database>

@@ -1,0 +1,6 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[com\.databricks\.client\.jdbc42\.internal\.apache\.arrow\.memory\.util\.MemoryUtil]]></pattern>
+        <message>Please add 'EnableArrow=0' to the URL. Choose 'Edit Manually' in the URL combo.</message>
+    </advice>
+</advices>

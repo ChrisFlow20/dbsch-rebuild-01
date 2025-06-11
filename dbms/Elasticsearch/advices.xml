@@ -1,0 +1,11 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[current license is non-compliant for [jdbc]]]></pattern>
+        <message><![CDATA[
+        JDBC is available only in Elasticsearch platinum.<br>
+        To enable a trial execute:<br>
+        curl -X POST "localhost:9200/_license/start_trial?acknowledge=true"
+        ]]></message>
+    </advice>
+</advices>
+

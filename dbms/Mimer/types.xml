@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="BIGINT" java="-5" precision="NONE"/>
+        <type name="BINARY" java="-2" precision="LENGTH"/>
+        <type name="BINARY LARGE OBJECT" java="-4" precision="LENGTH"/>
+        <type name="BOOLEAN" java="-7" precision="NONE"/>
+        <type name="CHAR" java="-8" precision="LENGTH"/>
+        <type name="CHARACTER" java="1" precision="LENGTH"/>
+        <type name="CHARACTER LARGE OBJECT" java="-1" precision="LENGTH"/>
+        <type name="DATE" java="91" precision="NONE"/>
+        <type name="DECIMAL" java="3" precision="PRECISION"/>
+        <type name="DOUBLE PRECISION" java="8" precision="NONE"/>
+        <type name="FLOAT" java="6" precision="NONE"/>
+        <type name="INTERVAL DAY" java="103" precision="LENGTH"/>
+        <type name="INTERVAL DAY() TO HOUR" java="108" precision="LENGTH"/>
+        <type name="INTERVAL DAY() TO MINUTE" java="109" precision="LENGTH"/>
+        <type name="INTERVAL DAY() TO SECOND" java="110" precision="LENGTH"/>
+        <type name="INTERVAL HOUR" java="104" precision="LENGTH"/>
+        <type name="INTERVAL HOUR() TO MINUTE" java="111" precision="LENGTH"/>
+        <type name="INTERVAL HOUR() TO SECOND" java="112" precision="LENGTH"/>
+        <type name="INTERVAL MINUTE" java="105" precision="LENGTH"/>
+        <type name="INTERVAL MINUTE() TO SECOND" java="113" precision="LENGTH"/>
+        <type name="INTERVAL MONTH" java="102" precision="LENGTH"/>
+        <type name="INTERVAL SECOND" java="106" precision="LENGTH"/>
+        <type name="INTERVAL YEAR" java="101" precision="LENGTH"/>
+        <type name="INTERVAL YEAR() TO MONTH" java="107" precision="LENGTH"/>
+        <type name="Integer" java="4" precision="PRECISION"/>
+        <type name="LONGVARCHAR" java="-10" precision="LENGTH"/>
+        <type name="NUMERIC" java="2" precision="DECIMAL"/>
+        <type name="ODBC.BIT" java="-7" precision="NONE"/>
+        <type name="ODBC.GUID" java="-11" precision="NONE"/>
+        <type name="ODBC.TINYINT" java="-6" precision="NONE"/>
+        <type name="REAL" java="7" precision="NONE"/>
+        <type name="SMALLINT" java="5" precision="NONE"/>
+        <type name="TIME" java="92" precision="LENGTH"/>
+        <type name="TIMESTAMP" java="93" precision="LENGTH"/>
+        <type name="VARBINARY" java="-3" precision="LENGTH"/>
+        <type name="VARCHAR" java="12" precision="LENGTH"/>
+    </types>
+</database>

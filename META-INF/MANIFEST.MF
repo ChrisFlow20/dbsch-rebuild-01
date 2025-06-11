@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Main-Class: com.wisecoders.dbs.DbSchema
+Specification-Version: 9.6.4
+Specification-Vendor: Wise Coders
+Implementation-Vendor-Id: dbschema.com
+Implementation-Vendor: Wise Coders
+Implementation-Version: 250101
+

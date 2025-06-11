@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types >
+		<type name="bigint" java="-5" precision="NONE" />
+		<type name="binary" java="-2" precision="LENGTH" />
+		<type name="bit" java="-7" precision="NONE" />
+		<type name="blob" java="2004" precision="NONE" />
+		<type name="bool" java="-7" precision="NONE" />
+		<type name="char" java="1" precision="LENGTH" />
+		<type name="date" java="91" precision="NONE" />
+		<type name="datetime" java="93" precision="NONE" />
+		<type name="decimal" java="3" precision="DECIMAL" />
+		<type name="double" java="8" precision="NONE" />
+		<type name="enum" java="12" precision="ENUMERATION" />
+		<type name="float" java="7" precision="DECIMAL" />
+		<type name="int" java="4" precision="NONE" />
+		<type name="long varbinary" java="-4" precision="NONE" />
+		<type name="long varchar" java="-1" precision="NONE" />
+		<type name="longblob" java="-4" precision="NONE" />
+		<type name="longtext" java="-1" precision="NONE" />
+		<type name="mediumblob" java="-4" precision="NONE" />
+		<type name="mediumint" java="4" precision="PRECISION" />
+		<type name="mediumtext" java="-1" precision="NONE" />
+		<type name="numeric" java="2" precision="DECIMAL" />
+		<type name="real" java="8" precision="DECIMAL" />
+		<type name="set" java="12" precision="ENUMERATION" />
+		<type name="smallint" java="5" precision="NONE" />
+		<type name="text" java="-1" precision="NONE" />
+		<type name="time" java="92" precision="NONE" />
+		<type name="timestamp" java="93" precision="NONE" />
+		<type name="tinyblob" java="-4" precision="NONE" />
+		<type name="tinyint" java="-6" precision="NONE" />
+		<type name="tinytext" java="-1" precision="NONE" />
+		<type name="varbinary" java="-3" precision="LENGTH" />
+		<type name="varchar" java="12" precision="LENGTH" />
+		<type name="id" java="12" precision="NONE" />
+		<type name="reference" java="12" precision="NONE" />
+		<type name="checkbox" java="16" precision="NONE" />
+		<type name="picklist" java="12" precision="NONE" />
+		<type name="number" java="2" precision="NONE" />
+		<type name="anytype" java="12" precision="NONE" />
+		<type name="autonumber" java="12" precision="NONE" />
+		<type name="textarea" java="12" precision="NONE" />
+		<type name="url" java="12" precision="NONE" />
+		<type name="currency" java="2" precision="NONE" />
+		<type name="email" java="12" precision="NONE" />
+		<type name="percent" java="2" precision="NONE" />
+		<type name="combobox" java="12" precision="NONE" />
+		<type name="phone" java="12" precision="NONE" />
+		<type name="multiselectpicklist" java="12" precision="NONE" />
+	</types>
+</database>

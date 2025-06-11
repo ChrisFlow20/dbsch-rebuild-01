@@ -1,0 +1,8 @@
+<advices>
+    <advice>
+        <pattern><![CDATA[Cursor support is not an implemented]]></pattern>
+        <message><![CDATA[
+Please choose 'Edit Manually' in the JDBC URL combo and add 'selectMethod=direct' to the JDBC URL.
+        ]]></message>
+    </advice>
+</advices>

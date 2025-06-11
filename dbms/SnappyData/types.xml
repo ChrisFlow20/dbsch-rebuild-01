@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+	<types >
+		<type name="clob" java="2005" precision="NONE" />
+		<type name="varchar" java="12" precision="LENGTH" />
+		<type name="bigint" java="-5" precision="NONE" />
+		<type name="long varchar for bit data" java="-4" precision="NONE" />
+		<type name="varchar () for bit data" java="-3" precision="LENGTH" />
+		<type name="char () for bit data" java="-2" precision="LENGTH" />
+		<type name="long varchar" java="-1" precision="NONE" />
+		<type name="char" java="1" precision="LENGTH" />
+		<type name="numeric" java="2" precision="DECIMAL" />
+		<type name="decimal" java="3" precision="PRECISION" />
+		<type name="smallint" java="5" precision="NONE" />
+		<type name="float" java="6" precision="PRECISION" />
+		<type name="real" java="7" precision="NONE" />
+		<type name="double" java="8" precision="NONE" />
+        <type name="boolean" java="16" precision="NONE"/>
+		<type name="date" java="91" precision="NONE" />
+		<type name="time" java="92" precision="NONE" />
+		<type name="timestamp" java="93" precision="NONE" />
+		<type name="object" java="2000" precision="NONE" />
+		<type name="blob" java="2004" precision="NONE" />
+		<type name="xml" java="2009" precision="NONE" />
+		<type name="json" java="4001" precision="LENGTH" />
+		<type name="integer" java="4" precision="NONE" />
+	</types>
+</database>

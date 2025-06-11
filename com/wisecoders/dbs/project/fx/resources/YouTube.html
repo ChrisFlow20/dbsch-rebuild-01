@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- https://medium.com/@rishabhaggarwal2/tutorial-how-to-do-full-screen-youtube-video-embeds-without-any-black-bars-faa778db499c -->
+    <style type="text/css">
+    .videoContainer 
+    { 
+        position: absolute; 
+        width: 100%; 
+        height: 100%; 
+        top: 0; 
+        left: 0; 
+        bottom: 0; 
+        right: 0; 
+        display: flex; 
+        flex-direction: column; 
+        justify-content: center; 
+        align-items: center; 
+    } 
+    iframe 
+    { 
+        /* optional */ 
+        width: 100%; 
+        height: 100%;  
+    }  
+    </style>
+</head>
+<body>
+    <div class="videoContainer">
+
+        <iframe class="videoContainer" width="1920" height="1080"
+                src="https://www.youtube.com/embed/VIDEOCODE?modestbranding=1&autoplay=0&controls=0&fs=0&loop=1&rel=0&showinfo=0&disablekb=1&playlist=VIDEOCODE"
+                frameborder="0"></iframe>
+        <h1>
+            Loading video...
+        </h1>
+    </div>
+</body>
+</html>

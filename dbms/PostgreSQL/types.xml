@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<database>
+    <types>
+        <type name="boolean" java="16" aliases="bool" precision="NONE"/>
+        <type name="bytea" java="-2" precision="NONE"/>
+        <type name="char" aliases="bpchar" java="1" precision="LENGTH"/>
+        <type name="date" java="91" precision="NONE"/>
+        <type name="interval" java="1111" precision="NONE"/>
+        <type name="real" aliases="float4" java="7" precision="NONE"/>
+        <type name="smallint" aliases="int2" java="5" precision="NONE" />
+        <type name="integer" aliases="int4" java="4" precision="NONE" />
+        <type name="json" java="2000" precision="NONE" update_cast="to_json(?::json)"/>
+        <type name="jsonb" java="2000" precision="NONE" update_cast="to_json(?::json)"/>
+        <type name="xml" java="2009" precision="NONE"/>
+        <type name="bigint" aliases="int8,bitserial" java="-5" precision="NONE" />
+        <type name="numeric" java="2" precision="DECIMAL" aliases="decimal"/>
+        <type name="decimal" java="3" precision="DECIMAL"/>
+        <type name="double precision" aliases="float8" java="3" precision="NONE"/>
+        <type name="oid" java="4" precision="LENGTH"/>
+        <type name="varchar" java="12" precision="LENGTH" defo_length="1000000000" options="COLLATE ~collationName~" options_title="Collation..."/>
+        <type name="text" java="12" precision="NONE" options="COLLATE ~collationName~"/>
+        <type name="tsvector" java="12" precision="NONE"/>
+        <type name="tsquery" java="12" precision="NONE"/>
+        <type name="time" java="92" precision="NONE"/>
+        <type name="timetz" java="92" precision="NONE"/>
+        <type name="timestamp" java="93" precision="LENGTH" defo_length="6"/>
+        <type name="timestamptz" java="93" precision="LENGTH" defo_length="6"/>
+        <type name="uuid" java="102" precision="NONE" update_cast="?::uuid"/>
+        <type name="citext" java="12" precision="NONE"/>
+        <type name="inet" java="1111" precision="NONE" update_cast="?::INET"/>
+        <type name="cidr" java="1111" precision="NONE"/>
+        <type name="macaddr" java="1111" precision="NONE"/>
+        <type name="varchar[]" java="2003" aliases="_varchar" precision="NONE" defo_length="1000000000" update_cast="?::varchar[]"/>
+        <type name="smallint[]" java="2003" aliases="_int2" precision="NONE"  update_cast="?::smallint[]"/>
+        <type name="integer[]" java="2003" aliases="_int4" precision="NONE"  update_cast="?::integer[]"/>
+        <type name="bigint[]" java="2003" aliases="_int8" precision="NONE"  update_cast="?::bigint[]"/>
+        <type name="double precision[]" java="2003" aliases="_float8" precision="NONE"  update_cast="?::float8[]"/>
+        <type name="text[]" java="2003" aliases="_text" precision="NONE" update_cast="?::text[]"/>
+        <type name="citext[]" java="2003" aliases="_citext" precision="NONE" update_cast="?::citext[]"/>
+        <type name="json[]" java="2003" aliases="_json" precision="NONE" update_cast="?::json[]"/>
+        <type name="jsonb[]" java="2003" aliases="_jsonb" precision="NONE" update_cast="?::jsonb[]"/>
+        <type name="bytea[]" java="2003" aliases="_bytea" precision="NONE"/>
+        <type name="uuid[]" java="2003" aliases="_uuid" precision="NONE" update_cast="?::uuid[]"/>
+        <type name="money" java="3" precision="NONE" update_cast="?::float8::numeric::money"/>
+        <type name="bit" java="-7" precision="LENGTH" defo_length="1"/>
+        <type name="varbit" alias="bit varying" java="-7" precision="LENGTH" defo_length="1"/>
+        <type name="smallserial" java="5" precision="NONE" generic="smallint"/>
+        <type name="serial" java="4" precision="NONE" generic="int"/>
+        <type name="bigserial" java="-5" precision="NONE" generic="bigint"/>
+        <type name="point" java="1111" precision="NONE" />
+        <type name="line" java="1111" precision="NONE" />
+        <type name="lseg" java="1111" precision="NONE" />
+        <type name="box" java="1111" precision="NONE" />
+        <type name="path" java="1111" precision="NONE" />
+        <type name="polygon" java="1111" precision="NONE" />
+        <type name="circle" java="1111" precision="NONE" />
+        <type name="int4range" java="1111" precision="NONE" />
+        <type name="int8range" java="1111" precision="NONE" />
+        <type name="numrange" java="1111" precision="NONE" />
+        <type name="tsrange" java="1111" precision="NONE" />
+        <type name="tstzrange" java="1111" precision="NONE" />
+        <type name="daterange" java="1111" precision="NONE" />
+    </types>
+</database>
